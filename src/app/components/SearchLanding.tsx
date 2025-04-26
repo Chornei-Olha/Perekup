@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function SearchLanding() {
   return (
     <section className="min-h-screen bg-gradient-to-b from-black to-red-900 text-black p-4 sm:p-6 md:p-10">

@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function SubscriptionPage() {
   return (
     <main className="w-full min-h-screen bg-gradient-to-b from-[#1f0b0b] to-[#1a1a1a] text-white py-12 px-4">

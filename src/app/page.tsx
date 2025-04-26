@@ -389,7 +389,7 @@ export default function Home() {
             </div>
 
             <div className="flex justify-center">
-              <img
+              <Image
                 src="/images/05.png"
                 alt="Tesla"
                 className="w-64 object-contain"

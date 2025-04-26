@@ -52,7 +52,7 @@ export default function TopSlider() {
 
         <div className="overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-500">
-            {slides.slice(current, current + 3).map((slide, index) => (
+            {slides.slice(current, current + 3).map((slide) => (
               <div
                 key={slide.id}
                 className="bg-white rounded-3xl p-4 flex flex-col items-center shadow-xl relative"

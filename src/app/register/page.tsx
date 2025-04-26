@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function RegisterPage() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-black via-[#300000] to-black text-white px-4 py-10 flex flex-col items-center justify-center">
@@ -61,7 +63,7 @@ export default function RegisterPage() {
           </div>
 
           <div className="hidden md:block">
-            <img
+            <Image
               src="/images/01-1.png"
               alt="Car"
               className="object-contain w-full"
