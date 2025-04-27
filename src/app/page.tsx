@@ -5,19 +5,28 @@ export default function Home() {
     <main className="w-full overflow-x-hidden">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center text-white py-20 px-4"
+        className="relative bg-cover bg-center text-white pt-5 pb-20 px-4"
         style={{
           backgroundImage:
             "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/bg.png)",
         }}
       >
+        <div className="flex justify-left items-center pt-0 pb-[77px]">
+          <Image
+            src="/images/logo.png" // Убедись, что путь правильный
+            alt="Logo"
+            width={357} // Укажи подходящую ширину
+            height={50} // Укажи подходящую высоту
+            className="object-contain" // Применяем стиль, чтобы логотип не искажался
+          />
+        </div>
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="font-plusjakarta  font-bold text-3xl md:text-5xl">
-            Лучший инструмент для поиска автомобилей ниже рыночной цены map for
-            your
+          <h1 className="font-['plusjakarta'] font-bold text-3xl md:text-5xl">
+            ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
           </h1>
-          <p className="mt-4 text-lg">
-            Мы анализируем тысячи объявлений и находим выгодные предложения
+          <p className="font-['plusjakarta'] mt-4 text-[12px] sm:text-[24px] max-w-[60%] mx-auto">
+            Только у нас Вы получите актуальные предложения от владельцев по
+            всей Украине, со всех интернет ресурсов по интересным ценам{" "}
           </p>
           <button className="mt-6 bg-red-600 hover:bg-red-700 transition px-6 py-2 rounded text-white font-semibold">
             Вход на портал
@@ -33,12 +42,14 @@ export default function Home() {
             ].map((brand) => (
               <div
                 key={brand.name}
-                className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-4 w-40 h-40"
+                className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-4 w-42 h-20"
               >
                 <div className="flex-1 flex items-center justify-center">
                   <Image
                     src={brand.img}
                     alt={brand.name}
+                    width={80}
+                    height={80}
                     className="h-12 object-contain"
                   />
                 </div>

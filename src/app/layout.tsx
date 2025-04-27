@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
 import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
 const plusJakarta = Plus_Jakarta_Sans({
@@ -25,9 +24,6 @@ const inter = Inter({
   weight: ["700"],
   variable: "--font-inter",
 });
-
-// Импортируем шрифты
-const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
 const SITE_NAME = "Perekup-pro";
 const SITE_DESCRIPTION = "";
@@ -56,7 +52,7 @@ export default function RootLayout({
         <meta property="og:title" content={SITE_NAME} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
       </head>
-      <body className={`${instrumentSans.className}`}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
