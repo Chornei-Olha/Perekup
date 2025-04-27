@@ -28,9 +28,16 @@ export default function Home() {
             Только у нас Вы получите актуальные предложения от владельцев по
             всей Украине, со всех интернет ресурсов по интересным ценам{" "}
           </p>
-          <button className="mt-6 bg-red-600 hover:bg-red-700 transition px-6 py-2 rounded text-white font-semibold">
+          <button className="font-['plusjakarta'] font-bold text-[20px] sm:text-[39px] mt-6 bg-[#9D0D14] hover:bg-red-700 transition px-7 py-2 rounded-[20px] text-white">
             Вход на портал
           </button>
+          <p className="font-['plusjakarta'] font-medium text-[12px] sm:text-[16px] pt-5 pb-3">
+            Самый удобный сервис. Все сайты в одном кабинете A­­utoRia, OLX,
+            RST, Avtobazar и др.
+          </p>
+          <p className="font-['plusjakarta'] font-semibold text-[12px] sm:text-[16px]">
+             Получай первым самые выгодные предложения.
+          </p>
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
               { name: "Lexus", count: 380, img: "/images/lexus.png" },
@@ -65,22 +72,22 @@ export default function Home() {
       </section>
 
       {/* How It Works Section */}
-      <section className="bg-[#1d0f0e] text-white py-16 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="bg-gradient-to-br from-red-600 to-red-400 rounded-2xl p-6 md:p-8 text-white max-w-md shadow-lg relative">
-            <p className="mb-6 text-sm md:text-base">
+      <section className="bg-[#1d0f0e] text-white py-16">
+        <div className="max-w-7xl ml-auto flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="bg-gradient-to-br from-red-600 to-red-400 rounded-2xl p-6 sm:p-8 text-white max-w-md shadow-lg relative">
+            <p className="font-['opensans'] font-regular text-[11px] sm:text-[14px] mb-6">
               Выбрать и купить новый автомобиль на PERECUP можно достаточно
               просто и быстро — благодаря удобному подбору авто по параметрам,
               сервису сравнения автомобилей и интуитивно простой навигации.
             </p>
-            <button className="bg-white text-black font-bold py-2 px-4 rounded-xl hover:bg-gray-200 transition">
+            <button className="font-['plusjakarta'] font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition">
               ВХОД НА ПОРТАЛ
             </button>
-            <div className="absolute right-4 bottom-4 w-28 md:w-36">
+            <div className="absolute right-0 bottom-0 w-28 md:w-50">
               <Image
-                src="/images/02.png" // Замените на актуальный путь к изображению
+                src="/images/02.png"
                 alt="Red sports car"
-                width={300}
+                width={500}
                 height={150}
                 className="object-contain"
               />
@@ -89,7 +96,7 @@ export default function Home() {
 
           <div className="flex items-center justify-center relative w-full md:w-auto">
             <Image
-              src="/images/01.png" // Замените на актуальный путь к изображению
+              src="/images/01.png"
               alt="White SUV"
               width={450}
               height={300}
@@ -98,16 +105,19 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <div className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center">
+          <div>
+            {" "}
+            <p className="text-[70px]">▼</p>
+          </div>
+          <div className="font-['opensans'] font-bold text-[30px] sm:text-[50px]">
             КАК ЭТО РАБОТАЕТ
           </div>
-          <div className="text-white text-3xl">⬇</div>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="bg-[#1d0f0e] text-white py-16 px-4 md:px-12 space-y-24">
+      <section className="bg-[#1d0f0e] text-white py-5 px-4 md:px-12 space-y-24">
         {/* Section 1 */}
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="relative w-full md:w-1/2">
@@ -143,10 +153,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Все объявления со всех автомобильных порталов Украины
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   собираются в одном месте. Система определяет кто перекупщик, а
                   кто хозяин по количеству размещенных автомобилей с номера
                   телефона за последние 4 года
@@ -162,10 +172,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Программа рассчитывает рыночную цену для каждого
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   автомобиля среди аналогичных авто в нашей базе
                 </p>
               </div>
@@ -179,10 +189,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Черный список в который входят: объявления от лизинга,
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   рассрочки, и просто фейковых объявлений
                 </p>
               </div>
@@ -196,10 +206,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Фильтр от перекупщиков : при желании можно убрать
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   объявления от перекупщиков и площадок, а так же исключить
                   пригнанные авто
                 </p>
@@ -215,14 +225,15 @@ export default function Home() {
               <Image
                 src="/images/Frame01.png"
                 alt="Price Change"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
+                className="width-[66px] height-[66px]"
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Система непрерывно следит за изменением цены в
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   объявлениях : если в старом объявлении изменится цена в
                   меньшую сторону без повторной публикации и попадет под ваш
                   фильтр вы получите уведомление
@@ -238,10 +249,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
-                  Мгновенное оповещение о новых автомобилях на смартфон , по
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                  Мгновенное оповещение о новых автомобилях на смартфон, по
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   заданным параметрам ( марка, модель, год, разница от рыночной
                   цены)
                 </p>
@@ -256,10 +267,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   Вам нужно только сделать выборку марок, моделей которые вам
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   интересны, и отклонение от рыночной цены и получать
                   уведомления по этому фильтру
                 </p>
@@ -274,10 +285,10 @@ export default function Home() {
                 height={32}
               />
               <div>
-                <h4 className="font-bold text-lg">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
                   В среднем пару минут проходит от публикации на автосайтах до
                 </h4>
-                <p className="text-sm">
+                <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   попадения в наш автопортал и Ваш смартфон
                 </p>
               </div>
@@ -363,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1a0f0f] text-white px-6 py-16 relative">
+      <footer className="bg-[#1a0f0f] text-white px-0 py-0 relative">
         <div className="max-w-6xl mx-auto">
           <p className="text-center w-full mx-auto mb-8">
             Для того чтобы увидеть все возможности нашего сервиса вам нужно
@@ -420,7 +431,7 @@ export default function Home() {
             </div>
           </div>
 
-          <h2 className="text-6xl md:text-8xl font-bold text-center text-gray-700 mt-16 opacity-10">
+          <h2 className="font-['inter'] font-bold w-full text-center text-white opacity-40 text-nowrap text-[70px] sm:text-[150px]">
             PEREKUP-PRO
           </h2>
         </div>
