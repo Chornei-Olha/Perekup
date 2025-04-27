@@ -13,11 +13,11 @@ export default function Home() {
       >
         <div className="flex justify-left items-center pt-0 pb-[77px]">
           <Image
-            src="/images/logo.png" // Убедись, что путь правильный
+            src="/images/logo-desktop.png"
             alt="Logo"
             width={357} // Укажи подходящую ширину
             height={50} // Укажи подходящую высоту
-            className="object-contain" // Применяем стиль, чтобы логотип не искажался
+            className="object-contain"
           />
         </div>
         <div className="max-w-6xl mx-auto text-center">
@@ -36,7 +36,7 @@ export default function Home() {
             RST, Avtobazar и др.
           </p>
           <p className="font-['plusjakarta'] font-semibold text-[12px] sm:text-[16px]">
-             Получай первым самые выгодные предложения.
+            Получай первым самые выгодные предложения.
           </p>
           <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
@@ -57,11 +57,11 @@ export default function Home() {
                     alt={brand.name}
                     width={80}
                     height={80}
-                    className="h-12 object-contain"
+                    className="object-contain"
                   />
                 </div>
                 <div className="text-center mt-2">
-                  <p className="text-gray-800 font-semibold">
+                  <p className="font-['manrope'] font-medium text-[12px] sm:text-[16px] text-[#667085]">
                     {brand.count} Cars
                   </p>
                 </div>
@@ -130,16 +130,16 @@ export default function Home() {
                 className="object-cover w-full h-auto"
               />
             </div>
-            <div className="absolute top-4 left-4 bg-white text-black text-sm px-4 py-2 rounded-full shadow-md">
+            <div className="font-['plusjakarta'] font-light text-[10px] sm:text-[14px] absolute top-23 right-23 bg-white text-[#821810] px-4 py-2 rounded-full shadow-md">
               Все авто в одном месте
             </div>
-            <div className="absolute top-2 right-2 w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+            <div className="absolute top-7 right-8 w-18 h-18 rounded-full">
               <Image
-                src="/avatar.png"
+                src="/images/Group.png"
                 alt="User avatar"
-                width={40}
-                height={40}
-                className="object-cover"
+                width={80}
+                height={80}
+                className="object-contain"
               />
             </div>
           </div>
@@ -149,11 +149,11 @@ export default function Home() {
               <Image
                 src="/images/Frame01.png"
                 alt="All Portals"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Все объявления со всех автомобильных порталов Украины
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -168,11 +168,11 @@ export default function Home() {
               <Image
                 src="/images/Frame02.png"
                 alt="Price Calc"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Программа рассчитывает рыночную цену для каждого
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -185,11 +185,11 @@ export default function Home() {
               <Image
                 src="/images/Frame03.png"
                 alt="Blacklist"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Черный список в который входят: объявления от лизинга,
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -202,11 +202,11 @@ export default function Home() {
               <Image
                 src="/images/Frame04.png"
                 alt="Filter"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Фильтр от перекупщиков : при желании можно убрать
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -230,7 +230,7 @@ export default function Home() {
                 className="width-[66px] height-[66px]"
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Система непрерывно следит за изменением цены в
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -245,11 +245,11 @@ export default function Home() {
               <Image
                 src="/images/Frame02.png"
                 alt="Notification"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Мгновенное оповещение о новых автомобилях на смартфон, по
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -263,11 +263,11 @@ export default function Home() {
               <Image
                 src="/images/Frame03.png"
                 alt="Choose"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   Вам нужно только сделать выборку марок, моделей которые вам
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -281,11 +281,11 @@ export default function Home() {
               <Image
                 src="/images/Frame04.png"
                 alt="Fast"
-                width={32}
-                height={32}
+                width={66}
+                height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px]">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
                   В среднем пару минут проходит от публикации на автосайтах до
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -297,63 +297,30 @@ export default function Home() {
             <div className="flex items-center gap-4 pt-4">
               <div className="flex -space-x-2 overflow-hidden">
                 <Image
-                  src="/avatars/user1.png"
-                  alt="User 1"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <Image
-                  src="/avatars/user2.png"
-                  alt="User 2"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <Image
-                  src="/avatars/user3.png"
-                  alt="User 3"
-                  width={32}
-                  height={32}
-                  className="rounded-full"
-                />
-                <Image
-                  src="/avatars/user4.png"
-                  alt="User 4"
-                  width={32}
-                  height={32}
+                  src="/images/clients.png"
+                  alt="Users"
+                  width={300}
+                  height={100}
                   className="rounded-full"
                 />
               </div>
-              <p className="text-white text-sm font-semibold">
+              {/* <p className="text-white text-sm font-semibold">
                 34,000+ <br /> Довольных клиентов
-              </p>
+              </p> */}
             </div>
           </div>
 
           <div className="relative w-full md:w-1/2 mt-10 md:mt-0">
-            <div className="bg-white text-center rounded-[30px] px-6 py-6 mb-4 max-w-md mx-autoc">
-              <div className="flex justify-center gap-4 mb-4 relative">
+            <div className="relative bg-white text-center rounded-[30px] px-2 pt-5 pb-30 max-w-md mx-autoc">
+              <div className="flex justify-left gap-4 mb-4 relative">
                 <Image
-                  src="/icons/icon1.png"
+                  src="/images/icons.png"
                   alt="Icon 1"
-                  width={32}
-                  height={32}
-                />
-                <Image
-                  src="/icons/icon2.png"
-                  alt="Icon 2"
-                  width={32}
-                  height={32}
-                />
-                <Image
-                  src="/icons/icon3.png"
-                  alt="Icon 3"
-                  width={32}
-                  height={32}
+                  width={180}
+                  height={60}
                 />
               </div>
-              <p className="text-[#941818] font-bold text-lg leading-snug">
+              <p className="font-['opensans'] font-bolt text-[15px] sm:text-[24px]  text-[#941818] leading-snug">
                 Устал сутками сидеть на разных сайтах <br />
                 поисках интересных вариантов , наш <br />
                 сервис кардинально изменит твой доход !
