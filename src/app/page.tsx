@@ -12,8 +12,9 @@ export default function Home() {
         }}
       >
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-3xl md:text-5xl font-bold">
-            Лучший инструмент для поиска автомобилей ниже рыночной цены
+          <h1 className="font-plusjakarta  font-bold text-3xl md:text-5xl">
+            Лучший инструмент для поиска автомобилей ниже рыночной цены map for
+            your
           </h1>
           <p className="mt-4 text-lg">
             Мы анализируем тысячи объявлений и находим выгодные предложения
@@ -21,22 +22,31 @@ export default function Home() {
           <button className="mt-6 bg-red-600 hover:bg-red-700 transition px-6 py-2 rounded text-white font-semibold">
             Вход на портал
           </button>
-          <div className="flex flex-wrap justify-center gap-4 mt-10">
+          <div className="flex flex-wrap justify-center gap-6 mt-10">
             {[
-              "Lexus",
-              "Subaru",
-              "Kia",
-              "Honda",
-              "Nissan",
-              "Toyota",
-              "Hyundai",
-              "Ford",
+              { name: "Lexus", count: 380, img: "/images/lexus.png" },
+              { name: "Мерс", count: 290, img: "/images/merc.png" },
+              { name: "Suzuki", count: 264, img: "/images/suzuki.png" },
+              { name: "Honda", count: 245, img: "/images/honda.png" },
+              { name: "Hyundai", count: 234, img: "/images/hyundai.png" },
+              { name: "Ferrari", count: 109, img: "/images/ferrari.png" },
             ].map((brand) => (
               <div
-                key={brand}
-                className="bg-white text-black rounded px-4 py-2 font-medium shadow"
+                key={brand.name}
+                className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-4 w-40 h-40"
               >
-                {brand}
+                <div className="flex-1 flex items-center justify-center">
+                  <Image
+                    src={brand.img}
+                    alt={brand.name}
+                    className="h-12 object-contain"
+                  />
+                </div>
+                <div className="text-center mt-2">
+                  <p className="text-gray-800 font-semibold">
+                    {brand.count} Cars
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -300,8 +310,8 @@ export default function Home() {
           </div>
 
           <div className="relative w-full md:w-1/2 mt-10 md:mt-0">
-            <div className="bg-white text-center rounded-[30px] px-6 py-6 mb-4 max-w-md mx-auto">
-              <div className="flex justify-center gap-4 mb-4">
+            <div className="bg-white text-center rounded-[30px] px-6 py-6 mb-4 max-w-md mx-autoc">
+              <div className="flex justify-center gap-4 mb-4 relative">
                 <Image
                   src="/icons/icon1.png"
                   alt="Icon 1"
@@ -328,7 +338,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="rounded-xl overflow-hidden">
+            <div className="absolute rounded-xl overflow-hidden">
               <Image
                 src="/images/04.png"
                 alt="Black SUV"
@@ -344,7 +354,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-[#1a0f0f] text-white px-6 py-16 relative">
         <div className="max-w-6xl mx-auto">
-          <p className="text-center max-w-2xl mx-auto mb-8">
+          <p className="text-center w-full mx-auto mb-8">
             Для того чтобы увидеть все возможности нашего сервиса вам нужно
             зарегистрироваться и указать тот номер телефона, на котором
             установлен Telegram, чтобы получать уведомления о новых авто. После
@@ -354,7 +364,7 @@ export default function Home() {
           <p className="text-center font-semibold uppercase mb-6">
             Повторная регистрация не допускается
           </p>
-          <p className="text-center max-w-2xl mx-auto mb-12">
+          <p className="text-center w-full mx-auto mb-12">
             Наша команда постоянно работает над улучшением нашего сервиса, чтобы
             вам было удобнее находить и покупать авто. Добавлена возможность
             посмотреть только проданные авто по заданным параметрам,
@@ -392,7 +402,9 @@ export default function Home() {
               <Image
                 src="/images/05.png"
                 alt="Tesla"
-                className="w-64 object-contain"
+                width={256}
+                height={144}
+                className="w-150 object-contain"
               />
             </div>
           </div>

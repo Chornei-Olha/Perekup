@@ -1,7 +1,30 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
+import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "500", "600", "700"],
+  variable: "--font-plusjakarta",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-manrope",
+});
+
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-opensans",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-inter",
+});
 
 // Импортируем шрифты
 const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
@@ -20,8 +43,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Head>
+    <html
+      lang="en"
+      className={`${plusJakarta.variable} ${manrope.variable} ${openSans.variable} ${inter.variable}`}
+    >
+      <head>
         {/* HTML Meta Tags */}
         <title>{SITE_NAME}</title>
         <meta name="description" content={SITE_DESCRIPTION} />
@@ -29,7 +55,7 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={SITE_NAME} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
-      </Head>
+      </head>
       <body className={`${instrumentSans.className}`}>{children}</body>
     </html>
   );

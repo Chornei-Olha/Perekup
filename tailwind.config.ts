@@ -13,7 +13,14 @@ const config: Config = {
         xl: "1430px",
       },
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        plusjakarta: ["var(--font-plusjakarta)", "sans-serif"],
+        manrope: ["var(--font-manrope)", "sans-serif"],
+        opensans: ["var(--font-opensans)", "sans-serif"],
+        inter: ["var(--font-inter)", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };
