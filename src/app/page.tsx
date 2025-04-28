@@ -120,32 +120,35 @@ export default function Home() {
       <section className="bg-[#1d0f0e] text-white py-5 px-4 md:px-12 space-y-24">
         {/* Section 1 */}
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="relative w-full md:w-1/2">
-            <div className="rounded-2xl overflow-hidden">
-              <Image
-                src="/images/03.png"
-                alt="Red car on the street"
-                width={600}
-                height={400}
-                className="object-cover w-full h-auto"
-              />
-            </div>
-            <div className="font-['plusjakarta'] font-light text-[10px] sm:text-[14px] absolute top-23 right-23 bg-white text-[#821810] px-4 py-2 rounded-full shadow-md">
-              Все авто в одном месте
-            </div>
-            <div className="absolute top-7 right-8 w-18 h-18 rounded-full">
-              <Image
-                src="/images/Group.png"
-                alt="User avatar"
-                width={80}
-                height={80}
-                className="object-contain"
-              />
+          <div className="w-full md:w-1/2">
+            <div className="relative">
+              {" "}
+              <div className="rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/03.png"
+                  alt="Red car on the street"
+                  width={600}
+                  height={400}
+                  className="object-cover max-w-[560px] h-auto"
+                />
+              </div>
+              <div className="absolute font-['plusjakarta'] font-light text-[10px] sm:text-[14px] top-23 right-50 bg-white text-[#821810] px-4 py-2 rounded-full shadow-md">
+                Все авто в одном месте
+              </div>
+              <div className="absolute top-7 right-35 w-18 h-18 rounded-full">
+                <Image
+                  src="/images/Group.png"
+                  alt="User avatar"
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 space-y-6 mt-8 md:mt-0">
-            <div className="flex items-start gap-4">
+          <div className="w-full md:w-[550px] space-y-8 mt-8 md:mt-0">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame01.png"
                 alt="All Portals"
@@ -153,18 +156,18 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Все объявления со всех автомобильных порталов Украины
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
                   собираются в одном месте. Система определяет кто перекупщик, а
                   кто хозяин по количеству размещенных автомобилей с номера
-                  телефона за последние 4 года
+                  телефона за последние 4 года{" "}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame02.png"
                 alt="Price Calc"
@@ -172,7 +175,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Программа рассчитывает рыночную цену для каждого
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -181,7 +184,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame03.png"
                 alt="Blacklist"
@@ -189,7 +192,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Черный список в который входят: объявления от лизинга,
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -198,7 +201,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame04.png"
                 alt="Filter"
@@ -206,7 +209,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Фильтр от перекупщиков : при желании можно убрать
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -220,17 +223,16 @@ export default function Home() {
 
         {/* Section 2 */}
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8 items-center">
-          <div className="w-full md:w-1/2 space-y-6">
-            <div className="flex items-start gap-4">
+          <div className="w-full md:w-[550px] space-y-8">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame01.png"
-                alt="Price Change"
+                alt="All Portals"
                 width={66}
                 height={66}
-                className="width-[66px] height-[66px]"
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Система непрерывно следит за изменением цены в
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -241,7 +243,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame02.png"
                 alt="Notification"
@@ -249,7 +251,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Мгновенное оповещение о новых автомобилях на смартфон, по
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -259,7 +261,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame03.png"
                 alt="Choose"
@@ -267,7 +269,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   Вам нужно только сделать выборку марок, моделей которые вам
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -277,7 +279,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4">
+            <div className="flex items-start gap-[40px]">
               <Image
                 src="/images/Frame04.png"
                 alt="Fast"
@@ -285,7 +287,7 @@ export default function Home() {
                 height={66}
               />
               <div>
-                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none">
+                <h4 className="font-['opensans'] font-semibold text-[16px] sm:text-[24px] leading-none mb-[17px]">
                   В среднем пару минут проходит от публикации на автосайтах до
                 </h4>
                 <p className="font-['opensans'] font-regular text-[12px] sm:text-[16px]">
@@ -311,8 +313,8 @@ export default function Home() {
           </div>
 
           <div className="relative w-full md:w-1/2 mt-10 md:mt-0">
-            <div className="relative bg-white text-center rounded-[30px] px-2 pt-5 pb-30 max-w-md mx-autoc">
-              <div className="flex justify-left gap-4 mb-4 relative">
+            <div className="relative bg-white text-center rounded-[30px] px-6 pt-5 max-w-md mx-auto h-[538px] shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
+              <div className="flex justify-start gap-4 mb-4">
                 <Image
                   src="/images/icons.png"
                   alt="Icon 1"
@@ -320,20 +322,20 @@ export default function Home() {
                   height={60}
                 />
               </div>
-              <p className="font-['opensans'] font-bolt text-[15px] sm:text-[24px]  text-[#941818] leading-snug">
+              <p className="font-['opensans'] font-bold text-[15px] sm:text-[24px] text-[#941818] leading-snug">
                 Устал сутками сидеть на разных сайтах <br />
-                поисках интересных вариантов , наш <br />
-                сервис кардинально изменит твой доход !
+                в поисках интересных вариантов, наш <br />
+                сервис кардинально изменит твой доход!
               </p>
             </div>
 
-            <div className="absolute rounded-xl overflow-hidden">
+            <div className="absolute rounded-xl overflow-hidden bottom-[-40px] right-[-70px]">
               <Image
                 src="/images/04.png"
                 alt="Black SUV"
                 width={800}
                 height={400}
-                className="object-contain w-full h-auto"
+                className="object-contain max-w-[819px] h-auto"
               />
             </div>
           </div>
