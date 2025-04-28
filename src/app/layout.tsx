@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -51,6 +52,10 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={SITE_NAME} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
+        {/* <link
+          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        /> */}
       </head>
       <body>{children}</body>
     </html>
