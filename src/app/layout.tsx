@@ -3,10 +3,11 @@ import "./globals.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
+
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["300", "500", "600", "700"],
-  variable: "--font-plusjakarta",
+  variable: "--font-plus-jakarta",
 });
 
 const manrope = Manrope({
@@ -18,7 +19,7 @@ const manrope = Manrope({
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  variable: "--font-opensans",
+  variable: "--font-open-sans",
 });
 
 const inter = Inter({

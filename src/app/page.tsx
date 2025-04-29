@@ -123,7 +123,7 @@ export default function Home() {
           </div>
 
           <div className="mt-24 text-center">
-            <h1 className="font-plusjakarta text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
+            <h1 className="font-plus-jakarta text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
@@ -331,7 +331,7 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <p className="#821810 text-2xl font-bold text-center mt-4">
+                    <p className="text-[#821810] text-2xl font-bold text-center mt-4">
                       Устал сутками сидеть на разных сайтах поисках интересных
                       вариантов, наш сервис кардинально изменит твой доход!
                     </p>

@@ -15,9 +15,9 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        plusjakarta: ["var(--font-plusjakarta)", "sans-serif"],
+        plusjakarta: ["var(--font-plus-jakarta)", "sans-serif"],
         manrope: ["var(--font-manrope)", "sans-serif"],
-        opensans: ["var(--font-opensans)", "sans-serif"],
+        opensans: ["var(--font-open-sans)", "sans-serif"],
         inter: ["var(--font-inter)", "sans-serif"],
       },
     },

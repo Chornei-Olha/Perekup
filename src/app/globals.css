@@ -22,4 +22,12 @@ body {
   background: var(--background);
 }
 
+html {
+  font-family: var(--font-manrope);
+}
+
+h1,
+button {
+  font-family: var(--font-plus-jakarta);
+}
 /* @tailwind utilities; */
