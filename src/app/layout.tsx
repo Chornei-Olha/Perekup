@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
 const plusJakarta = Plus_Jakarta_Sans({
