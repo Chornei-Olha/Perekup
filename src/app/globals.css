@@ -23,11 +23,16 @@ body {
 }
 
 html {
-  font-family: var(--font-manrope);
+  font-family: var(--font-open-sans);
 }
 
 h1,
+h3,
 button {
   font-family: var(--font-plus-jakarta);
+}
+
+h4 {
+  font-family: var(--font-inter);
 }
 /* @tailwind utilities; */

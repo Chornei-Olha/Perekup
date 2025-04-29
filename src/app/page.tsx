@@ -123,29 +123,27 @@ export default function Home() {
           </div>
 
           <div className="mt-24 text-center">
-            <h1 className="font-plus-jakarta text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
+            <h1 className="font-plus-jakarta text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
             </h1>
-            <p className="font-plusjakarta mt-8 text-xl sm:text-2xl font-light max-w-4xl mx-auto">
-              Только у нас Вы получите актуальные предложения от
-              <br />
-              владельцев по всей Украине, со всех интернет ресурсов по
-              интересным ценам
-            </p>
+            <h3 className="font-plusjakarta mt-8 text-xl sm:text-2xl font-light max-w-4xl mx-auto">
+              Только у нас Вы получите актуальные предложения от владельцев по
+              всей Украине, со всех интернет ресурсов по интересным ценам
+            </h3>
             <button className="font-plusjakarta font-bold text-[20px] sm:text-[39px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
               ВХОД НА ПОРТАЛ
             </button>
 
-            <p className="font-plusjakarta font-medium mt-6 text-base pt-5">
+            <h3 className="font-plusjakarta font-medium mt-6 text-base pt-5">
               Самый удобный сервис. Все сайты в одном кабинете AutoRia, OLX,
               RST, Avtobazar и др.
               <br />
               <span className="font-plusjakarta font-semibold">
                 Получай первым самые выгодные предложения.
               </span>
-            </p>
+            </h3>
             <div className="flex flex-wrap justify-center gap-6 mt-10">
               {[
                 { name: "Lexus", count: 380, img: "/images/lexus.png" },
@@ -258,9 +256,9 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-white">
-                      <h3 className="text-2xl font-semibold mb-4">
+                      <h2 className="text-2xl font-semibold mb-4">
                         {feature.title}
-                      </h3>
+                      </h2>
                       <p className="text-base">{feature.description}</p>
                     </div>
                   </div>
@@ -288,9 +286,9 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-white">
-                      <h3 className="text-2xl font-semibold mb-4">
+                      <h2 className="text-2xl font-semibold mb-4">
                         {feature.title}
-                      </h3>
+                      </h2>
                       <p className="text-base">{feature.description}</p>
                     </div>
                   </div>
@@ -408,9 +406,9 @@ export default function Home() {
               {serviceBenefits.map((benefit, index) => (
                 <div key={index} className="bg-transparent border-none">
                   <div className="flex flex-col h-full">
-                    <h3 className="text-xl font-semibold text-center mb-6">
+                    <h2 className="text-xl font-semibold text-center mb-6">
                       {benefit.title}
-                    </h3>
+                    </h2>
                     <p className="text-sm flex-grow mb-6">
                       {benefit.description}
                     </p>
@@ -499,9 +497,9 @@ export default function Home() {
             </div>
           </div>
         </footer>
-        <div className="text-white/40 text-[200px] font-bold text-center">
+        <h4 className="text-white/40 text-[200px] font-bold text-center">
           PEREKUP-PRO
-        </div>
+        </h4>
       </div>
     </main>
   );
