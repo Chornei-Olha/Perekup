@@ -220,11 +220,29 @@ export default function Home() {
             <h2 className="font-manrope text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
               КАК ЭТО РАБОТАЕТ
             </h2>
-
-            {/* Red blur effect */}
-            <div className="absolute w-[1000px] h-[1000px] rounded-full blur-[240px] opacity-20 -left-1/4 top-1/4 z-0"></div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              <div className="relative">
+                <Image
+                  src="/images/03.png"
+                  alt="Red car on the street"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto rounded-lg"
+                />
+                <div className="absolute top-5 right-10 ">
+                  {" "}
+                  <Image
+                    src="/images/Group.svg"
+                    alt="Car icon"
+                    width={76}
+                    height={76}
+                  />
+                </div>
+                <div className="absolute top-20 right-30 text-sm text-[#821810] bg-white p-4 rounded-[5px]">
+                  {" "}
+                  Все авто в одном месте
+                </div>
+              </div>
               <div className="space-y-8">
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-10">
@@ -248,30 +266,37 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-
-              <div className="relative">
-                <Image
-                  src="/images/03.png"
-                  alt="Red car on the street"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg"
-                />
-                {/* <div className="absolute -bottom-8 -right-8 text-sm text-red-500">
-                  Все авто в одном месте
-                </div> */}
-              </div>
             </div>
           </div>
         </section>
         {/* Additional features section */}
         <section className="py-16 relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
-            {/* Red blur effect */}
-            <div className="absolute w-[1000px] h-[1000px] rounded-full blur-[240px] opacity-20 -right-1/4 top-1/4 z-0"></div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              <div className="relative order-2 md:order-1">
+              <div className="space-y-8 order-1 md:order-2">
+                {additionalFeatures.map((feature, index) => (
+                  <div key={index} className="flex gap-10">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
+                        <Image
+                          src={feature.icon}
+                          alt=""
+                          width={200}
+                          height={100}
+                          className="w-8 h-8"
+                        />
+                      </div>
+                    </div>
+                    <div className="text-white">
+                      <h3 className="text-2xl font-semibold mb-4">
+                        {feature.title}
+                      </h3>
+                      <p className="text-base">{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="relative order-2 md:order-2">
                 <div className="relative h-[538px] w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
                   <div>
                     <div className="flex space-x-2 mb-6">
@@ -319,30 +344,6 @@ export default function Home() {
                   height={100}
                   className="absolute max-w-[819px] h-auto mt-8 bottom-[40px] right-[-40px]"
                 />
-              </div>
-
-              <div className="space-y-8 order-1 md:order-2">
-                {additionalFeatures.map((feature, index) => (
-                  <div key={index} className="flex gap-10">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
-                        <Image
-                          src={feature.icon}
-                          alt=""
-                          width={200}
-                          height={100}
-                          className="w-8 h-8"
-                        />
-                      </div>
-                    </div>
-                    <div className="text-white">
-                      <h3 className="text-2xl font-semibold mb-4">
-                        {feature.title}
-                      </h3>
-                      <p className="text-base">{feature.description}</p>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
