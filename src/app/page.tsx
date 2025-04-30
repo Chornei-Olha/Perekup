@@ -99,7 +99,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm: justify-between items-left sm:items-center">
               {/* Logo */}
               <div className="flex flex-col mb-[25px] sm:mb-0">
-                <h1 className="text-2xl sm:text-5xl font-bold text-white">
+                <h1 className="text-xl sm:text-5xl font-bold text-white">
                   PEREKUP-PRO
                 </h1>
                 <p className="text-sm text-gray-400">
@@ -125,8 +125,8 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-24 text-center">
-            <h1 className="font-plus-jakarta text-bold text-2xl sm:text-5xl font-bold tracking-wide leading-tight">
+          <div className="mt-18 sm:mt-24 text-center">
+            <h1 className="font-plus-jakarta text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
@@ -503,7 +503,7 @@ export default function Home() {
             </div>
           </div>
         </footer>
-        <h4 className="text-white/40 text-[55px] sm:text-[200px] font-bold text-center">
+        <h4 className="text-white/40 text-[50px] sm:text-[200px] font-bold text-center">
           PEREKUP-PRO
         </h4>
       </div>
