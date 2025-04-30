@@ -132,7 +132,7 @@ export default function Home() {
               Только у нас Вы получите актуальные предложения от владельцев по
               всей Украине, со всех интернет ресурсов по интересным ценам
             </h3>
-            <button className="font-plusjakarta font-bold text-[20px] sm:text-[39px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
+            <button className="font-plusjakarta font-bold text-[px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
               ВХОД НА ПОРТАЛ
             </button>
 
@@ -218,14 +218,14 @@ export default function Home() {
             <h2 className="font-manrope text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
               КАК ЭТО РАБОТАЕТ
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-              <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretc">
+              <div className="relative h-full">
                 <Image
                   src="/images/03.png"
                   alt="Red car on the street"
                   width={600}
                   height={400}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-full object-cover rounded-lg"
                 />
                 <div className="absolute top-5 right-10 ">
                   {" "}
@@ -241,7 +241,7 @@ export default function Home() {
                   Все авто в одном месте
                 </div>
               </div>
-              <div className="space-y-8">
+              <div className="space-y-8 h-full">
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-10">
                     <div className="flex-shrink-0">
@@ -350,7 +350,7 @@ export default function Home() {
         <section className="py-8">
           <div className="container mx-auto px-4">
             <div className="flex items-center">
-              <div className="flex space-x-2">
+              <div className="flex">
                 <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0">
                   <Image
                     src="/images/ML1.svg"
@@ -358,34 +358,34 @@ export default function Home() {
                     width={200}
                     height={100}
                     className="w-12 h-12"
-                  />{" "}
+                  />
                 </div>
-                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0">
+                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0 -ml-[7px]">
                   <Image
                     src="/images/ML2.svg"
                     alt=""
                     width={200}
                     height={100}
                     className="w-12 h-12"
-                  />{" "}
+                  />
                 </div>
-                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0">
+                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0 -ml-[7px]">
                   <Image
                     src="/images/ML3.svg"
                     alt=""
                     width={200}
                     height={100}
                     className="w-12 h-12"
-                  />{" "}
+                  />
                 </div>
-                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0">
+                <div className="bg-white text-black h-12 w-12 rounded-full flex items-center justify-center p-0 -ml-[7px]">
                   <Image
                     src="/images/ML4.svg"
                     alt=""
                     width={200}
                     height={100}
                     className="w-12 h-12"
-                  />{" "}
+                  />
                 </div>
               </div>
               <div className="ml-6">
@@ -395,6 +395,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         {/* Service benefits section */}
         <section className="py-16 text-white">
           <div className="container mx-auto px-4">
@@ -452,8 +453,8 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="text-[white] px-0 py-0 relative">
-          <div className="max-w-7xl ml-auto flex flex-col md:flex-row items-start justify-between gap-8">
-            <div className="w-full grid md:grid-cols-[1fr_auto] gap-10">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
+            <div className="w-full grid md:grid-cols-[1fr_auto]">
               <div className="space-y-3 my-auto">
                 <div className="mb-4">
                   <div className="flex items-center mb-2">
