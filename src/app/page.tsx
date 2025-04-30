@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+
 export default function Home() {
   // Features data
   const features = [
@@ -95,17 +96,19 @@ export default function Home() {
         >
           {/* Header content */}
           <div className="relative z-20 container mx-auto px-4 py-6">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col sm:flex-row sm: justify-between items-left sm:items-center">
               {/* Logo */}
-              <div className="flex flex-col">
-                <h1 className="text-5xl font-bold text-white">PEREKUP-PRO</h1>
+              <div className="flex flex-col mb-[25px] sm:mb-0">
+                <h1 className="text-2xl sm:text-5xl font-bold text-white">
+                  PEREKUP-PRO
+                </h1>
                 <p className="text-sm text-gray-400">
                   Сервис для профессионалов автобизнеса
                 </p>
               </div>
 
               {/* Contact info */}
-              <div className="flex items-center space-x-6">
+              <div className="flex flex-col sm:flex-row items-left sm:items-center space-x-6">
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 mr-2" />
                   <span className="text-white">Украина</span>
@@ -123,16 +126,16 @@ export default function Home() {
           </div>
 
           <div className="mt-24 text-center">
-            <h1 className="font-plus-jakarta text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
+            <h1 className="font-plus-jakarta text-bold text-2xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
             </h1>
-            <h3 className="font-plusjakarta mt-8 text-xl sm:text-2xl font-light max-w-4xl mx-auto">
+            <h3 className="font-plusjakarta mt-8 text-md sm:text-2xl font-light max-w-4xl mx-auto">
               Только у нас Вы получите актуальные предложения от владельцев по
               всей Украине, со всех интернет ресурсов по интересным ценам
             </h3>
-            <button className="font-plusjakarta font-bold text-[px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
+            <button className="font-plusjakarta font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
               ВХОД НА ПОРТАЛ
             </button>
 
@@ -214,11 +217,13 @@ export default function Home() {
         {/* newSection */}
         <section className="relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
-            <p className="text-[50px] text-center text-white">▼</p>
-            <h2 className="font-manrope text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
+            <p className="text-[20px] sm:text-[50px] text-center text-white">
+              ▼
+            </p>
+            <h2 className="font-manrope text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
               КАК ЭТО РАБОТАЕТ
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-stretc">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 items-stretc">
               <div className="relative h-full">
                 <Image
                   src="/images/03.png"
@@ -245,18 +250,18 @@ export default function Home() {
                 {features.map((feature, index) => (
                   <div key={index} className="flex gap-10">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
+                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
                         <Image
                           src={feature.icon}
                           alt=""
                           width={200}
                           height={100}
-                          className="w-8 h-8"
+                          className="w-5 sm:w-8 h-5 sm:h-8"
                         />
                       </div>
                     </div>
                     <div className="text-white">
-                      <h2 className="text-2xl font-semibold mb-4">
+                      <h2 className="text-xl sm:text-2xl font-semibold mb-4">
                         {feature.title}
                       </h2>
                       <p className="text-base">{feature.description}</p>
@@ -270,23 +275,23 @@ export default function Home() {
         {/* Additional features section */}
         <section className="py-16 relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
               <div className="space-y-8 order-1 md:order-2">
                 {additionalFeatures.map((feature, index) => (
                   <div key={index} className="flex gap-10">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
+                      <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
                         <Image
                           src={feature.icon}
                           alt=""
                           width={200}
                           height={100}
-                          className="w-8 h-8"
+                          className="w-5 sm:w-8 h-5 sm:h-8"
                         />
                       </div>
                     </div>
                     <div className="text-white">
-                      <h2 className="text-2xl font-semibold mb-4">
+                      <h2 className="text-xl sm:text-2xl font-semibold mb-4">
                         {feature.title}
                       </h2>
                       <p className="text-base">{feature.description}</p>
@@ -295,41 +300,41 @@ export default function Home() {
                 ))}
               </div>
               <div className="relative order-2 md:order-2">
-                <div className="relative h-[538px] w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
+                <div className="relative h-[400px] w-[auto] sm:h-[538px] sm:w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
                   <div>
                     <div className="flex space-x-2 mb-6">
-                      <div className="w-15 h-15 rounded-full bg-gradient-to-b from-red-600 to-gray-900 flex items-center justify-center">
+                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-900 flex items-center justify-center">
                         {" "}
                         <Image
                           src="/images/vector5.svg"
                           alt=""
                           width={200}
                           height={100}
-                          className="w-8 h-8"
+                          className="w-5 sm:w-8 h-5 sm:h-8"
                         />
                       </div>
-                      <div className="w-15 h-15 rounded-full bg-gradient-to-b from-red-600 to-black flex items-center justify-center">
+                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-black flex items-center justify-center">
                         {" "}
                         <Image
                           src="/images/vector6.svg"
                           alt=""
                           width={200}
                           height={100}
-                          className="w-8 h-8"
+                          className="w-5 sm:w-8 h-5 sm:h-8"
                         />
                       </div>
-                      <div className="w-15 h-15 rounded-full bg-gradient-to-b from-red-600 to-gray-800 flex items-center justify-center">
+                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-800 flex items-center justify-center">
                         {" "}
                         <Image
                           src="/images/vector7.svg"
                           alt=""
                           width={200}
                           height={100}
-                          className="w-8 h-8"
+                          className="w-5 sm:w-8 h-5 sm:h-8"
                         />
                       </div>
                     </div>
-                    <p className="text-[#821810] text-2xl font-bold text-center mt-4">
+                    <p className="text-[#821810] text-xl sm:text-2xl font-bold text-center mt-4">
                       Устал сутками сидеть на разных сайтах поисках интересных
                       вариантов, наш сервис кардинально изменит твой доход!
                     </p>
@@ -340,7 +345,7 @@ export default function Home() {
                   alt="Car"
                   width={700}
                   height={100}
-                  className="absolute max-w-[819px] h-auto mt-8 bottom-[40px] right-[-40px]"
+                  className="absolute max-w-[430px] sm:max-w-[819px] h-auto mt-8 bottom-[-30px] sm:bottom-[40px] right-[-30px] sm:right-[-40px]"
                 />
               </div>
             </div>
@@ -399,7 +404,7 @@ export default function Home() {
         {/* Service benefits section */}
         <section className="py-16 text-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-5xl font-bold text-center uppercase tracking-wider mb-16">
+            <h2 className="text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-10 sm:mb-16">
               НАШ СЕРВИС БУДЕТ ПОЛЕЗЕН
             </h2>
 
@@ -423,8 +428,8 @@ export default function Home() {
           </div>
         </section>
         {/* Registration info */}
-        <section className="py-12 text-white">
-          <div className="container mx-auto text-center">
+        <section className="py-12 px-4 text-white">
+          <div className="container mx-auto txt-left sm:text-center">
             <p className="text-base mb-2">
               Для того что бы увидеть все возможности нашего сервиса вам нужно
               зарегистрироваться, и указать тот номер телефона на котором
@@ -455,7 +460,7 @@ export default function Home() {
         <footer className="text-[white] px-0 py-0 relative">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
             <div className="w-full grid md:grid-cols-[1fr_auto]">
-              <div className="space-y-3 my-auto">
+              <div className="space-y-3 my-auto pl-4 sm:pl-0">
                 <div className="mb-4">
                   <div className="flex items-center mb-2">
                     <span className="text-gray-500 w-20">Телефон</span>
@@ -498,7 +503,7 @@ export default function Home() {
             </div>
           </div>
         </footer>
-        <h4 className="text-white/40 text-[200px] font-bold text-center">
+        <h4 className="text-white/40 text-[55px] sm:text-[200px] font-bold text-center">
           PEREKUP-PRO
         </h4>
       </div>
