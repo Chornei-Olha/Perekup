@@ -38,7 +38,7 @@ const slides = [
   },
 ];
 
-export default function TopSlider() {
+export default function Slider() {
   const [current, setCurrent] = useState(0);
 
   const next = () => setCurrent((prev) => (prev + 1) % slides.length);

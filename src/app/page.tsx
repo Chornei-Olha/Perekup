@@ -1,7 +1,16 @@
+"use client";
+
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/register");
+  };
+
   // Features data
   const features = [
     {
@@ -135,7 +144,10 @@ export default function Home() {
               Только у нас Вы получите актуальные предложения от владельцев по
               всей Украине, со всех интернет ресурсов по интересным ценам
             </h3>
-            <button className="font-plusjakarta font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white">
+            <button
+              onClick={handleClick}
+              className="font-plusjakarta font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white"
+            >
               ВХОД НА ПОРТАЛ
             </button>
 
@@ -189,9 +201,13 @@ export default function Home() {
                 просто и быстро — благодаря удобному подбору авто по параметрам,
                 сервису сравнения автомобилей и интуитивно простой навигации.
               </p>
-              <button className="font-plusjakarta font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition">
+              <button
+                onClick={handleClick}
+                className="font-plusjakarta font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition"
+              >
                 ВХОД НА ПОРТАЛ
               </button>
+
               <div className="absolute right-0 bottom-0 w-28 md:w-50">
                 <Image
                   src="/images/02.png"
@@ -418,9 +434,12 @@ export default function Home() {
                     <p className="text-sm flex-grow mb-6">
                       {benefit.description}
                     </p>
-                    <div className="bg-white font-bold text-red-800 hover:bg-gray-100 rounded-full self-center px-8 py-3">
+                    <button
+                      onClick={handleClick}
+                      className="bg-white font-bold text-red-800 hover:bg-gray-100 rounded-full self-center px-8 py-3 cursor-pointer"
+                    >
                       ПОПРОБОВАТЬ БЕСПЛАТНО
-                    </div>
+                    </button>
                   </div>
                 </div>
               ))}

@@ -1,76 +1,110 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-export default function RegisterPage() {
+export default function RegistrationPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [agreed, setAgreed] = useState(true);
+
+  const handleRegister = () => {
+    if (agreed) {
+      // Логика регистрации
+      router.push("/pricing");
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-gradient-to-br from-black via-[#300000] to-black text-white px-4 py-10 flex flex-col items-center justify-center">
-      <div className="max-w-6xl w-full relative">
-        <div className="absolute top-4 right-4 text-sm text-gray-300">
-          volna2007@meta.ua
-        </div>
+    <div className="min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white flex items-center justify-center p-4 sm:p-8">
+      <div className="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+        <div>
+          <p className="text-lg sm:text-xl font-semibold mb-10">
+            После регистрации, вам будет доступно 1 день бесплатного
+            пользования. За это время вы можете приобрести авто по наиболее
+            выгодным ценам в Украине.
+          </p>
 
-        <h1 className="text-3xl md:text-5xl font-bold mb-6">PEREKUP-PRO</h1>
-        <p className="text-sm text-gray-300 mb-10">
-          Сервис для профессионалов автобизнеса
-        </p>
-
-        <p className="text-lg md:text-xl font-medium max-w-2xl mb-12">
-          После регистрации, вам будет доступно 1 день бесплатного пользования.
-          За это время вы можете приобрести авто по наиболее выгодным ценам в
-          Украине.
-        </p>
-
-        <div className="grid md:grid-cols-3 gap-6 items-start">
-          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="mb-4 text-lg sm:text-xl font-medium">
+            У меня есть аккаунт
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block mb-2">Email</label>
+              <label className="text-sm sm:text-base">Email</label>
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full px-4 py-2 rounded bg-white text-black"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full p-2 mt-1 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
             </div>
             <div>
-              <label className="block mb-2">Пароль</label>
+              <label className="text-sm sm:text-base">Пароль</label>
               <input
                 type="password"
                 placeholder="Пароль"
-                className="w-full px-4 py-2 rounded bg-white text-black"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full p-2 mt-1 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
               />
-              <div className="text-sm text-gray-300 mt-1">Напомнить пароль</div>
-            </div>
-            <div className="col-span-2 mt-4 flex items-start gap-2">
-              <input type="checkbox" className="mt-1" />
-              <p className="text-sm text-gray-300">
-                Отправляя форму, я соглашаюсь <br />с{" "}
-                <span className="underline">
-                  политикой обработки персональных данных
-                </span>
-              </p>
-            </div>
-            <div className="col-span-2 mt-6">
-              <label className="block mb-2">Телефон</label>
-              <input
-                type="tel"
-                placeholder="+380"
-                className="w-full px-4 py-2 rounded bg-white text-black"
-              />
-            </div>
-            <div className="col-span-2 mt-4">
-              <button className="w-full bg-red-700 hover:bg-red-800 transition px-6 py-3 rounded text-white font-semibold">
-                Регистрация
-              </button>
+              <div className="text-sm text-right text-gray-300 mt-1">
+                Напомнить пароль
+              </div>
             </div>
           </div>
 
-          <div className="hidden md:block">
-            <Image
-              src="/images/01-1.png"
-              alt="Car"
-              className="object-contain w-full"
+          <div className="flex items-start gap-2 mb-4">
+            <input
+              type="checkbox"
+              checked={agreed}
+              onChange={(e) => setAgreed(e.target.checked)}
+              className="h-4 w-4 text-red-600"
             />
+            <p className="text-sm sm:text-base">
+              Отправляя форму, я соглашаюсь с <br />
+              <span className="underline">
+                политикой обработки персональных данных
+              </span>
+            </p>
+          </div>
+
+          <div className="mb-2 text-lg sm:text-xl font-medium">
+            Создать аккаунт
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+            <div>
+              <label className="text-sm sm:text-base">Телефон</label>
+              <input
+                type="tel"
+                placeholder="+380"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                className="w-full p-2 mt-1 rounded bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-red-600"
+              />
+            </div>
+            <button
+              className="w-full sm:w-auto bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded mt-4 sm:mt-0"
+              onClick={handleRegister}
+            >
+              Регистрация
+            </button>
           </div>
         </div>
+
+        <div className="flex justify-center sm:justify-end mt-8 sm:mt-0">
+          <Image
+            src="/images/car.png"
+            alt="car"
+            width={500} // Указываем желаемую ширину
+            height={300} // Указываем желаемую высоту
+            className="max-w-full h-auto object-contain"
+          />
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

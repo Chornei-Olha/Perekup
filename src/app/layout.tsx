@@ -7,7 +7,7 @@ import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["300", "500", "600", "700"],
-  variable: "--font-plus-jakarta",
+  variable: "--font-plusjakarta",
 });
 
 const manrope = Manrope({
@@ -19,7 +19,7 @@ const manrope = Manrope({
 const openSans = Open_Sans({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  variable: "--font-open-sans",
+  variable: "--font-opensans",
 });
 
 const inter = Inter({
