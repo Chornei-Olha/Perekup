@@ -99,8 +99,8 @@ export default function RegistrationPage() {
           <Image
             src="/images/car.png"
             alt="car"
-            width={500} // Указываем желаемую ширину
-            height={300} // Указываем желаемую высоту
+            width={500}
+            height={300}
             className="max-w-full h-auto object-contain"
           />
         </div>

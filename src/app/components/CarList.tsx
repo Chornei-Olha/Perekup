@@ -1,25 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image"; // Import Image from next/image
-
-interface Car {
-  id: number;
-  title: string;
-  year: number;
-  price: number;
-  marketPrice: number;
-  mileage: number;
-  engineVolume: number;
-  gearbox: string;
-  fuel: string;
-  city: string;
-  daysInSale: number;
-  sellerCarCount: number;
-  description: string;
-  url: string;
-  image: string;
-  lastUpdate: string;
-}
+import type { Car } from "@/app/types/Car";
 
 interface CarListProps {
   cars: Car[];
@@ -37,16 +19,17 @@ const CarList: React.FC<CarListProps> = ({ cars }) => {
           key={car.id}
           className="border rounded-2xl overflow-hidden shadow hover:shadow-lg transition bg-white"
         >
-          {/* Replace <img> with <Image /> */}
           <Image
             src={car.image}
-            alt={car.title}
-            width={500} // Set width and height for Image optimization
-            height={300} // Set height for Image optimization
+            alt={car.brand}
+            width={500}
+            height={300}
             className="w-full h-48 object-cover"
           />
           <div className="p-4 space-y-2">
-            <h3 className="text-lg font-bold">{car.title}</h3>
+            <h3 className="text-lg font-bold">
+              {car.brand} {car.model}
+            </h3>
             <p className="text-sm text-gray-600">
               {car.year} • {car.engineVolume} л • {car.gearbox} • {car.fuel}
             </p>
@@ -57,7 +40,7 @@ const CarList: React.FC<CarListProps> = ({ cars }) => {
               </span>
             </p>
             <p className="text-sm text-gray-700">
-              {car.mileage.toLocaleString()} км • {car.city}
+              {car.mileage.toLocaleString()} км • {car.region}
             </p>
             <p className="text-sm text-gray-500">
               В продажу: {car.daysInSale} днів • Продавець має:{" "}

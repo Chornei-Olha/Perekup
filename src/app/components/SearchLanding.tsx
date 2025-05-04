@@ -2,17 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import type { Car } from "@/app/types/Car";
+import CarList from "@/app/components/CarList";
 
-// Типы
 interface Option {
   id: number;
   name: string;
 }
 
 interface Filters {
-  region: number | "";
-  brand: number | "";
-  model: number | "";
+  region: number | null;
+  brand: number | null;
+  model: number | null;
   minPrice: number;
   maxPrice: number;
   minYear: number;
@@ -21,9 +22,9 @@ interface Filters {
   maxEngineVolume: number;
   minMileage: number;
   maxMileage: number;
-  gearbox: number | "";
-  fuel: number | "";
-  state: number | "";
+  gearbox: number | null;
+  fuel: number | null;
+  state: number | null;
   paint: boolean;
   transfer: boolean;
   sold: boolean;
@@ -34,6 +35,7 @@ interface Filters {
 }
 
 export default function SearchLanding() {
+  const [cars, setCars] = useState<Car[]>([]);
   const [regions, setRegions] = useState<Option[]>([]);
   const [brands, setBrands] = useState<Option[]>([]);
   const [models, setModels] = useState<Option[]>([]);
@@ -41,9 +43,9 @@ export default function SearchLanding() {
   const [error, setError] = useState<string | null>(null);
 
   const [filters, setFilters] = useState<Filters>({
-    region: "",
-    brand: "",
-    model: "",
+    region: null,
+    brand: null,
+    model: null,
     minPrice: 1000,
     maxPrice: 100000,
     minYear: 2010,
@@ -52,9 +54,9 @@ export default function SearchLanding() {
     maxEngineVolume: 6.5,
     minMileage: 100,
     maxMileage: 1000000,
-    gearbox: "",
-    fuel: "",
-    state: "",
+    gearbox: null,
+    fuel: null,
+    state: null,
     paint: false,
     transfer: false,
     sold: false,
@@ -65,17 +67,25 @@ export default function SearchLanding() {
   });
 
   useEffect(() => {
-    axios.get("/api/regions").then((res) => setRegions(res.data));
-    axios.get("/api/brands").then((res) => setBrands(res.data));
+    axios.get("/api/regions").then((res) => {
+      console.log("Regions:", res.data);
+      setRegions(res.data);
+    });
+
+    axios.get("/api/brands").then((res) => {
+      console.log("Brands:", res.data);
+      setBrands(res.data);
+    });
   }, []);
 
-  const handleBrandChange = (brandId: number | "") => {
-    setFilters({ ...filters, brand: brandId, model: "" });
+  const handleBrandChange = (brandId: number | null) => {
+    setFilters((prev) => ({ ...prev, brand: brandId, model: null }));
 
     if (brandId) {
-      axios
-        .post("/api/models", { brands: [brandId] })
-        .then((res) => setModels(res.data));
+      axios.post("/api/models", { brands: [brandId] }).then((res) => {
+        console.log("Models:", res.data);
+        setModels(res.data);
+      });
     } else {
       setModels([]);
     }
@@ -98,9 +108,28 @@ export default function SearchLanding() {
       return;
     }
 
+    const payload = {
+      ...filters,
+      ...(filters.brand !== null ? { brands: [filters.brand] } : {}),
+      ...(filters.model !== null ? { models: [filters.model] } : {}),
+    };
+
+    // Удаляем все поля с null (или можно использовать lodash omitBy)
+    const cleanedPayload = Object.fromEntries(
+      Object.entries(payload).filter(([, value]) => value !== null)
+    );
+
+    // Проверяем, если в cleanedPayload нет обязательных параметров, например "region", то показываем все машины
+    if (Object.keys(cleanedPayload).length === 0) {
+      setError("Пожалуйста, выберите хотя бы один фильтр.");
+      setLoading(false);
+      return;
+    }
+
     axios
-      .post("/api/search", filters)
-      .then(() => {
+      .post("/api/cars/search", cleanedPayload)
+      .then((res) => {
+        setCars(res.data);
         setLoading(false);
       })
       .catch(() => {
@@ -119,9 +148,12 @@ export default function SearchLanding() {
           {/* Регион */}
           <select
             className="border p-2 rounded"
-            value={filters.region}
+            value={filters.region ?? ""}
             onChange={(e) =>
-              setFilters({ ...filters, region: Number(e.target.value) || "" })
+              setFilters({
+                ...filters,
+                region: e.target.value ? Number(e.target.value) : null,
+              })
             }
           >
             <option value="">Все регионы</option>
@@ -135,8 +167,8 @@ export default function SearchLanding() {
           {/* Бренд */}
           <select
             className="border p-2 rounded"
-            value={filters.brand}
-            onChange={(e) => handleBrandChange(Number(e.target.value) || "")}
+            value={filters.brand ?? ""}
+            onChange={(e) => handleBrandChange(Number(e.target.value) || null)} // Исправлено для пустого значения
           >
             <option value="">Выберите бренд</option>
             {brands.map((brand) => (
@@ -149,9 +181,12 @@ export default function SearchLanding() {
           {/* Модель */}
           <select
             className="border p-2 rounded"
-            value={filters.model}
+            value={filters.model ?? ""}
             onChange={(e) =>
-              setFilters({ ...filters, model: Number(e.target.value) || "" })
+              setFilters({
+                ...filters,
+                model: e.target.value ? Number(e.target.value) : null,
+              })
             }
             disabled={!filters.brand}
           >
@@ -164,28 +199,41 @@ export default function SearchLanding() {
           </select>
 
           {/* КПП */}
-          <input
-            type="number"
-            placeholder="КПП (1 или 2)"
+          <select
             className="border p-2 rounded"
-            value={filters.gearbox}
+            value={filters.gearbox ?? ""}
             onChange={(e) =>
-              setFilters({ ...filters, gearbox: Number(e.target.value) || "" })
+              setFilters({
+                ...filters,
+                gearbox: e.target.value ? Number(e.target.value) : null,
+              })
             }
-          />
+          >
+            <option value="">КПП (все)</option>
+            <option value={1}>Механика</option>
+            <option value={2}>Автомат</option>
+          </select>
 
           {/* Топливо */}
-          <input
-            type="number"
-            placeholder="Топливо (1–5)"
+          <select
             className="border p-2 rounded"
-            value={filters.fuel}
+            value={filters.fuel ?? ""}
             onChange={(e) =>
-              setFilters({ ...filters, fuel: Number(e.target.value) || "" })
+              setFilters({
+                ...filters,
+                fuel: e.target.value ? Number(e.target.value) : null,
+              })
             }
-          />
+          >
+            <option value="">Топливо</option>
+            <option value={1}>Бензин</option>
+            <option value={2}>Дизель</option>
+            <option value={3}>Газ</option>
+            <option value={4}>Электро</option>
+            <option value={5}>Гибрид</option>
+          </select>
 
-          {/* Год */}
+          {/* Год выпуска */}
           <div className="flex gap-2">
             <input
               type="number"
@@ -280,15 +328,21 @@ export default function SearchLanding() {
           </div>
 
           {/* Состояние */}
-          <input
-            type="number"
-            placeholder="Состояние (1–3)"
+          <select
             className="border p-2 rounded"
-            value={filters.state}
+            value={filters.state ?? ""}
             onChange={(e) =>
-              setFilters({ ...filters, state: Number(e.target.value) || "" })
+              setFilters({
+                ...filters,
+                state: e.target.value ? Number(e.target.value) : null,
+              })
             }
-          />
+          >
+            <option value="">Состояние</option>
+            <option value={1}>Новая</option>
+            <option value={2}>Хорошее</option>
+            <option value={3}>Требует ремонта</option>
+          </select>
 
           {/* Чекбоксы */}
           <div className="flex flex-wrap gap-4 col-span-3">
@@ -356,6 +410,10 @@ export default function SearchLanding() {
 
         {loading && <p>Загрузка...</p>}
         {error && <p className="text-red-500">{error}</p>}
+      </div>
+
+      <div className="mt-8">
+        <CarList cars={cars} />
       </div>
     </section>
   );
