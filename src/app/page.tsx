@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+// import { Mail, MapPin, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
-
+import Header from "@/app/components/Header";
 export default function Home() {
   const router = useRouter();
 
@@ -103,10 +103,9 @@ export default function Home() {
               "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/bg.png)",
           }}
         >
-          {/* Header content */}
-          <div className="relative z-20 container mx-auto px-4 py-6">
+          <Header />
+          {/* <div className="relative z-20 container mx-auto px-4 py-6">
             <div className="flex flex-col sm:flex-row sm: justify-between items-left sm:items-center">
-              {/* Logo */}
               <div className="flex flex-col mb-[25px] sm:mb-0">
                 <h1 className="text-xl sm:text-5xl font-bold text-white">
                   PEREKUP-PRO
@@ -116,7 +115,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Contact info */}
               <div className="flex flex-col sm:flex-row items-left sm:items-center space-x-6">
                 <div className="flex items-center">
                   <MapPin className="h-5 w-5 mr-2" />
@@ -132,7 +130,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           <div className="mt-18 sm:mt-24 text-center">
             <h1 className="font-plus-jakarta text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">

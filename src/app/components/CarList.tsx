@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image"; // Import Image from next/image
+import Image from "next/image";
 import type { Car } from "@/app/types/Car";
 
 interface CarListProps {

@@ -1,5 +1,3 @@
-// app/api/brands/route.ts
-
 import { NextResponse } from "next/server";
 
 // Массив брендов
