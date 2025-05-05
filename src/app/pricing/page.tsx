@@ -7,7 +7,7 @@ export default function SubscriptionPage() {
         <Header />
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 mt-20">
+        <div className="grid  grid-cols-1 sm:grid-cols-3 gap-6 mb-12 mt-10 sm:mt-20">
           {[
             {
               price: "250 грн",
@@ -32,13 +32,13 @@ export default function SubscriptionPage() {
               className="bg-white text-black p-6 rounded-[30px] text-center flex flex-col items-center justify-between"
             >
               <div>
-                <h2 className="text-[66px] font-bold mb-1 text-[#821810]">
+                <h2 className="text-[40px] sm:text-[66px] font-bold mb-1 text-[#821810]">
                   {item.price}
                 </h2>
-                <p className="text-[48px] text-[#821810] font-light mb-4">
+                <p className="text-[28px] sm:text-[48px] text-[#821810] font-light mb-3">
                   {item.duration}
                 </p>
-                <p className="text-[29px] text-[#1F0404] mb-6 max-w-xs mx-auto leading-snug">
+                <p className="text-[18px] sm:text-[29px] text-[#1F0404] mb-3 max-w-xs mx-auto leading-snug">
                   {item.description}
                 </p>
               </div>
@@ -50,9 +50,13 @@ export default function SubscriptionPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-left text-[#EFEFEF] text-[32px] font-light">
+        <p className="text-left text-[#EFEFEF] text-[20px] sm:text-[32px] font-light">
           После оплаты пришлите почту или вайбер
         </p>
+        <p className="font-['Inter'] text-2xl">Тест Inter</p>
+        <p className="font-['Plus_Jakarta_Sans'] text-2xl">Тест Jakarta</p>
+        <h4 className="font-['Manrope'] text-2xl">Тест Manrope</h4>
+        <p className="font-['Open_Sans'] text-2xl">Тест Opensans</p>
       </div>
     </main>
   );

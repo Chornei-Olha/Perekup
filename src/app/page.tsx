@@ -104,56 +104,28 @@ export default function Home() {
           }}
         >
           <Header />
-          {/* <div className="relative z-20 container mx-auto px-4 py-6">
-            <div className="flex flex-col sm:flex-row sm: justify-between items-left sm:items-center">
-              <div className="flex flex-col mb-[25px] sm:mb-0">
-                <h1 className="text-xl sm:text-5xl font-bold text-white">
-                  PEREKUP-PRO
-                </h1>
-                <p className="text-sm text-gray-400">
-                  Сервис для профессионалов автобизнеса
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-left sm:items-center space-x-6">
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2" />
-                  <span className="text-white">Украина</span>
-                </div>
-                <div className="flex items-center">
-                  <Mail className="h-5 w-5 mr-2" />
-                  <span className="text-white">pekekuppro7@gmail.com</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="h-5 w-5 mr-2" />
-                  <span className="text-white">+38(050) 044-11-32</span>
-                </div>
-              </div>
-            </div>
-          </div> */}
-
           <div className="mt-18 sm:mt-24 text-center">
-            <h1 className="font-plus-jakarta text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
+            <h1 className="font-['Plus_Jakarta_Sans'] text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
             </h1>
-            <h3 className="font-plusjakarta mt-8 text-md sm:text-2xl font-light max-w-4xl mx-auto">
+            <h2 className="font-['Plus_Jakarta_Sans'] mt-8 text-md sm:text-2xl font-light max-w-4xl mx-auto">
               Только у нас Вы получите актуальные предложения от владельцев по
               всей Украине, со всех интернет ресурсов по интересным ценам
-            </h3>
+            </h2>
             <button
               onClick={handleClick}
-              className="font-plusjakarta font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white"
+              className="font-['Plus_Jakarta_Sans'] font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white"
             >
               ВХОД НА ПОРТАЛ
             </button>
 
-            <h3 className="font-plusjakarta font-medium mt-6 text-base pt-5">
+            <h3 className="font-['Plus_Jakarta_Sans'] font-medium mt-6 text-base pt-5">
               Самый удобный сервис. Все сайты в одном кабинете AutoRia, OLX,
               RST, Avtobazar и др.
               <br />
-              <span className="font-plusjakarta font-semibold">
+              <span className="font-['Plus_Jakarta_Sans'] font-semibold">
                 Получай первым самые выгодные предложения.
               </span>
             </h3>
@@ -180,7 +152,7 @@ export default function Home() {
                     />
                   </div>
                   <div className="text-center mt-2">
-                    <p className="font-manrope font-medium text-[12px] sm:text-[16px] text-[#667085]">
+                    <p className="font-['Manrope'] font-medium text-[12px] sm:text-[16px] text-[#667085]">
                       {brand.count} Cars
                     </p>
                   </div>
@@ -194,14 +166,14 @@ export default function Home() {
         <section className=" text-white pt-5">
           <div className="max-w-7xl ml-auto flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="bg-[#FF001D] rounded-2xl p-6 sm:p-8 text-white max-w-md shadow-lg relative">
-              <p className="font-opensans font-regular text-[11px] sm:text-[14px] mb-6">
+              <p className="font-['Open_Sans'] font-regular text-[11px] sm:text-[14px] mb-6">
                 Выбрать и купить новый автомобиль на PERECUP можно достаточно
                 просто и быстро — благодаря удобному подбору авто по параметрам,
                 сервису сравнения автомобилей и интуитивно простой навигации.
               </p>
               <button
                 onClick={handleClick}
-                className="font-plusjakarta font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition"
+                className="font-['Plus_Jakarta_Sans'] font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition"
               >
                 ВХОД НА ПОРТАЛ
               </button>
@@ -234,7 +206,7 @@ export default function Home() {
             <p className="text-[20px] sm:text-[50px] text-center text-white">
               ▼
             </p>
-            <h2 className="font-manrope text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
+            <h2 className="font-['Manrope'] text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-16 text-white">
               КАК ЭТО РАБОТАЕТ
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-16 items-stretc">
@@ -255,7 +227,7 @@ export default function Home() {
                     height={76}
                   />
                 </div>
-                <div className="absolute top-20 right-30 text-sm text-[#821810] bg-white p-4 rounded-[5px]">
+                <div className="font-['Plus_Jakarta_Sans'] absolute top-20 right-30 text-sm text-[#821810] bg-white p-4 rounded-[5px]">
                   {" "}
                   Все авто в одном месте
                 </div>
@@ -275,10 +247,12 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-white">
-                      <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                      <h3 className="font-['Open_Sans'] text-xl sm:text-2xl font-semibold mb-4">
                         {feature.title}
-                      </h2>
-                      <p className="text-base">{feature.description}</p>
+                      </h3>
+                      <p className="font-['Open_Sans'] text-base">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -305,10 +279,12 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-white">
-                      <h2 className="text-xl sm:text-2xl font-semibold mb-4">
+                      <h3 className="font-['Open_Sans'] text-xl sm:text-2xl font-semibold mb-4">
                         {feature.title}
-                      </h2>
-                      <p className="text-base">{feature.description}</p>
+                      </h3>
+                      <p className="font-['Open_Sans'] text-base">
+                        {feature.description}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -348,7 +324,7 @@ export default function Home() {
                         />
                       </div>
                     </div>
-                    <p className="text-[#821810] text-xl sm:text-2xl font-bold text-center mt-4">
+                    <p className="font-['Open_Sans'] text-[#821810] text-xl sm:text-2xl font-bold text-center mt-4">
                       Устал сутками сидеть на разных сайтах поисках интересных
                       вариантов, наш сервис кардинально изменит твой доход!
                     </p>
@@ -408,8 +384,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="ml-6">
-                <p className="text-xl font-bold text-white">34,000+</p>
-                <p className="font-light text-white">Довольных клиентов</p>
+                <p className="font-['Inter'] text-xl font-bold text-white">
+                  34,000+
+                </p>
+                <p className="font-['Inter'] font-extralight text-white">
+                  Довольных клиентов
+                </p>
               </div>
             </div>
           </div>
@@ -418,7 +398,7 @@ export default function Home() {
         {/* Service benefits section */}
         <section className="py-16 text-white">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-10 sm:mb-16">
+            <h2 className="font-['Manrope'] text-3xl sm:text-5xl font-bold text-center uppercase tracking-wider mb-10 sm:mb-16">
               НАШ СЕРВИС БУДЕТ ПОЛЕЗЕН
             </h2>
 
@@ -426,15 +406,15 @@ export default function Home() {
               {serviceBenefits.map((benefit, index) => (
                 <div key={index} className="bg-transparent border-none">
                   <div className="flex flex-col h-full">
-                    <h2 className="text-xl font-semibold text-center mb-6">
+                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-center mb-6">
                       {benefit.title}
-                    </h2>
-                    <p className="text-sm flex-grow mb-6">
+                    </h3>
+                    <p className="font-['Plus_Jakarta_Sans'] font-extralight text-sm flex-grow mb-6">
                       {benefit.description}
                     </p>
                     <button
                       onClick={handleClick}
-                      className="bg-white font-bold text-red-800 hover:bg-gray-100 rounded-full self-center px-8 py-3 cursor-pointer"
+                      className="font-['Open_Sans'] bg-white font-bold text-red-800 hover:bg-gray-100 rounded-full self-center px-8 py-3 cursor-pointer"
                     >
                       ПОПРОБОВАТЬ БЕСПЛАТНО
                     </button>
@@ -447,76 +427,82 @@ export default function Home() {
         {/* Registration info */}
         <section className="py-12 px-4 text-white">
           <div className="container mx-auto txt-left sm:text-center">
-            <p className="text-base mb-2">
+            <p className="font-['Open_Sans'] text-base font-light mb-4">
               Для того что бы увидеть все возможности нашего сервиса вам нужно
               зарегистрироваться, и указать тот номер телефона на котором
-              установлен телеграм. Что бы получать
-            </p>
-            <p className="text-base mb-4">
-              уведомления о новых авто. После чего вам будет доступно день
+              установлен телеграм. Чтобы получать уведомления о новых авто.
+              После чего вам будет доступно день
               <span className="text-red-500"> бесплатного</span> пользования.
             </p>
 
-            <p className="text-base font-semibold my-6">
+            <p className="font-['Open_Sans'] text-base font-light my-6">
               ПОВТОРНАЯ РЕГИСТРАЦИЯ НЕ ДОПУСКАЕТСЯ
             </p>
 
-            <p className="text-base mb-2">
+            <p className="font-['Open_Sans'] text-base font-light mb-2">
               Наша команда постоянно работает над улучшением нашего сервиса, для
               того что вам было удобнее находить и покупать авто. Добавлена
-              возможность посмотреть только
-            </p>
-            <p className="text-base">
-              проданные авто по заданым параметрам, для того что бы прицениться,
-              а так же исключить пригнаные
+              возможность посмотреть только проданные авто по заданым
+              параметрам, для того что бы прицениться, а так же исключить
+              пригнаные
             </p>
           </div>
         </section>
 
         {/* Footer */}
         <footer className="text-[white] px-0 py-0 relative">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between">
-            <div className="w-full grid md:grid-cols-[1fr_auto]">
-              <div className="space-y-3 my-auto pl-4 sm:pl-0">
-                <div className="mb-4">
-                  <div className="flex items-center mb-2">
-                    <span className="text-gray-500 w-20">Телефон</span>
-                    <span className="text-white/75">+38(050)0441132</span>
-                  </div>
-                  <div className="flex items-center mb-2">
-                    <span className="text-gray-500 w-20">Адрес</span>
-                    <span className="text-white/75">Украина</span>
-                  </div>
-                  <div className="flex items-center mb-8">
-                    <span className="text-gray-500 w-20">E-mail</span>
-                    <span className="text-white/75">pekekuppro7@gmail.com</span>
-                  </div>
+          <div className="w-full flex flex-col md:flex-row sm:justify-between sm:items-end">
+            <div className="space-y-3 my-auto pl-4 sm:pl-16">
+              <div className="mb-4">
+                <div className="flex items-center mb-2">
+                  <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
+                    Телефон
+                  </span>
+                  <span className="font-['Open_Sans'] font-light text-white/75">
+                    +38(050)0441132
+                  </span>
                 </div>
-                <div className="flex gap-4 mt-4">
-                  <a href="#" className="hover:text-red-500">
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a href="#" className="hover:text-red-500">
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                  <a href="#" className="hover:text-red-500">
-                    <i className="fab fa-x-twitter"></i>
-                  </a>
-                  <a href="#" className="hover:text-red-500">
-                    <i className="fab fa-youtube"></i>
-                  </a>
+                <div className="flex items-center mb-2">
+                  <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
+                    Адрес
+                  </span>
+                  <span className="font-['Open_Sans'] font-light text-white/75">
+                    Украина
+                  </span>
+                </div>
+                <div className="flex items-center mb-8">
+                  <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
+                    E-mail
+                  </span>
+                  <span className="font-['Open_Sans'] font-light text-white/75">
+                    pekekuppro7@gmail.com
+                  </span>
                 </div>
               </div>
+              <div className="flex gap-4 mt-4">
+                <a href="#" className="hover:text-red-500">
+                  <i className="fab fa-facebook"></i>
+                </a>
+                <a href="#" className="hover:text-red-500">
+                  <i className="fab fa-instagram"></i>
+                </a>
+                <a href="#" className="hover:text-red-500">
+                  <i className="fab fa-x-twitter"></i>
+                </a>
+                <a href="#" className="hover:text-red-500">
+                  <i className="fab fa-youtube"></i>
+                </a>
+              </div>
+            </div>
 
-              <div className="flex justify-end items-end">
-                <Image
-                  src="/images/05.png"
-                  alt="Tesla"
-                  width={800}
-                  height={144}
-                  className="object-contain"
-                />
-              </div>
+            <div className="mt-6 md:mt-0">
+              <Image
+                src="/images/05.png"
+                alt="Tesla"
+                width={800}
+                height={144}
+                className="object-contain"
+              />
             </div>
           </div>
         </footer>

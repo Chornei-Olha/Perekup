@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-/* @theme {
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-} */
+}
 
 :root {
   --background: #ffffff;
@@ -20,19 +20,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-}
-
-html {
-  font-family: var(--font-open-sans);
-}
-
-h1,
-h3,
-button {
-  font-family: var(--font-plus-jakarta);
-}
-
-h4 {
   font-family: var(--font-inter);
 }
-/* @tailwind utilities; */

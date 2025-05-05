@@ -1,31 +1,34 @@
+import { Inter, Plus_Jakarta_Sans, Manrope, Open_Sans } from "next/font/google";
+
 import type { Metadata } from "next";
 import "./globals.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import { Plus_Jakarta_Sans, Manrope, Open_Sans, Inter } from "next/font/google";
-
-const plusJakarta = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "700"],
+  variable: "--font-inter",
+});
+
+const plus_jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
   weight: ["300", "500", "600", "700"],
-  variable: "--font-plusjakarta",
+  variable: "--font-plus-jakarta-sans",
 });
 
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["500"],
+  display: "swap",
+  weight: "500",
   variable: "--font-manrope",
 });
 
-const openSans = Open_Sans({
+const open_sans = Open_Sans({
   subsets: ["latin"],
+  display: "swap",
   weight: ["400", "600", "700"],
-  variable: "--font-opensans",
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-inter",
+  variable: "--font-open-sans",
 });
 
 const SITE_NAME = "Perekup-pro";
@@ -42,10 +45,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${plusJakarta.variable} ${manrope.variable} ${openSans.variable} ${inter.variable}`}
-    >
+    <html lang="en">
       <head>
         {/* HTML Meta Tags */}
         <title>{SITE_NAME}</title>
@@ -54,12 +54,12 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={SITE_NAME} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
-        {/* <link
-          href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        /> */}
       </head>
-      <body>{children}</body>
+      <body
+        className={`${inter.className} ${plus_jakarta.className} ${manrope.className} ${open_sans.className}`}
+      >
+        {children}
+      </body>
     </html>
   );
 }

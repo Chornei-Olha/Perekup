@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
@@ -14,12 +15,12 @@ const config: Config = {
       },
     },
     extend: {
-      fontFamily: {
-        plusjakarta: ["var(--font-plus-jakarta)", "sans-serif"],
-        manrope: ["var(--font-manrope)", "sans-serif"],
-        opensans: ["var(--font-open-sans)", "sans-serif"],
-        inter: ["var(--font-inter)", "sans-serif"],
-      },
+      // fontFamily: {
+      //   inter: ["var(--font-inter)"],
+      //   jakarta: ["var(--font-plus-jakarta-sans)"],
+      //   manrope: ["var(--font-manrope)"],
+      //   sans: ["var(--font-open-sans)"],
+      // },
     },
   },
   plugins: [],
