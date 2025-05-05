@@ -4,7 +4,7 @@ export default function SubscriptionPage() {
   return (
     <main className="w-full min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white">
       <Header />
-      <section className="max-w-6xl mx-auto py-12 px-4">
+      <section className="max-w-6xl mx-auto py-4 px-4">
         {/* Pricing Cards */}
         <div className="grid  grid-cols-1 sm:grid-cols-3 gap-6 mb-12 mt-10 sm:mt-20">
           {[
@@ -52,10 +52,6 @@ export default function SubscriptionPage() {
         <p className="text-left text-[#EFEFEF] text-[20px] sm:text-[32px] font-light">
           После оплаты пришлите почту или вайбер
         </p>
-        <p className="font-['Inter'] text-2xl">Тест Inter</p>
-        <p className="font-['Plus_Jakarta_Sans'] text-2xl">Тест Jakarta</p>
-        <h4 className="font-['Manrope'] text-2xl">Тест Manrope</h4>
-        <p className="font-['Open_Sans'] text-2xl">Тест Opensans</p>
       </section>
     </main>
   );
