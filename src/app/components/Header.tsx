@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="relative z-20 container mx-auto">
-      <div className="flex flex-col sm:flex-row sm: justify-between items-left sm:items-center">
+    <div className="relative px-4 sm:px-16">
+      <div className="flex flex-col md:flex-row justify-between items-left sm:items-center">
         {/* Logo */}
         <div className="flex flex-col mb-[25px] sm:mb-0">
           <Link href="/">
