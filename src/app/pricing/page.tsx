@@ -31,17 +31,17 @@ export default function SubscriptionPage() {
               className="bg-white text-black p-6 rounded-[30px] text-center flex flex-col items-center justify-between"
             >
               <div>
-                <h2 className="text-[40px] sm:text-[66px] font-bold mb-1 text-[#821810]">
+                <h2 className="font-['Inter'] font-semibold text-[40px] sm:text-[66px]  mb-1 text-[#821810]">
                   {item.price}
                 </h2>
-                <p className="text-[28px] sm:text-[48px] text-[#821810] font-light mb-3">
+                <p className="font-['Inter'] font-extralight text-[28px] sm:text-[48px] text-[#821810] mb-3">
                   {item.duration}
                 </p>
-                <p className="text-[18px] sm:text-[29px] text-[#1F0404] mb-3 max-w-xs mx-auto leading-snug">
+                <p className="font-['Inter'] font-medium leading-[34px] text-[18px] sm:text-[29px] text-[#1F0404] mb-3 max-w-xs mx-auto">
                   {item.description}
                 </p>
               </div>
-              <button className="bg-gradient-to-r from-[#821810] to-[#000000] text-white px-6 py-2 rounded-[6px] text-[12px] font-medium w-[213px] h-[63px] cursor">
+              <button className="font-['Inter'] font-bold bg-gradient-to-r from-[#821810] to-[#000000] text-white px-6 py-2 rounded-[6px] text-[12px] w-[213px] h-[63px] cursor">
                 Оплатить
               </button>
             </div>
@@ -49,7 +49,7 @@ export default function SubscriptionPage() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-left text-[#EFEFEF] text-[20px] sm:text-[32px] font-light">
+        <p className="font-['Inter'] font-extralight text-left text-[#EFEFEF] text-[20px] sm:text-[32px]">
           После оплаты пришлите почту или вайбер
         </p>
       </section>

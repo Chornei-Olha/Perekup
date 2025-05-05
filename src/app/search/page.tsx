@@ -8,16 +8,6 @@ export default function Search() {
     <div className="flex flex-col">
       <SearchLanding />
       <Slider />
-      {/* 
-      <div className="mt-6 px-4">
-        {loading ? (
-          <p className="text-center text-gray-600">Загрузка...</p>
-        ) : error ? (
-          <p className="text-center text-red-500">{error}</p>
-        ) : (
-          <CarList cars={cars} />
-        )}
-      </div> */}
     </div>
   );
 }
