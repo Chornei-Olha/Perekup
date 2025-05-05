@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <main className="w-full overflow-x-hidden">
       {/* Hero Section */}
-      <div
+      <section
         className="relative bg-[#691A1A]"
         style={{
           backgroundImage: "url(/images/bg-desktop.png)",
@@ -96,15 +96,15 @@ export default function Home() {
           backgroundBlendMode: "overlay",
         }}
       >
-        <section
-          className="relative bg-cover bg-center text-white pt-5 pb-20 px-4"
+        <div
+          className="relative bg-cover bg-center text-white "
           style={{
             backgroundImage:
               "linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/bg.png)",
           }}
         >
           <Header />
-          <div className="mt-18 sm:mt-24 text-center">
+          <div className="px-4 pb-5 mt-18 sm:mt-24 text-center">
             <h1 className="font-['Plus_Jakarta_Sans'] text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
@@ -160,7 +160,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </div>
 
         {/* How It Works Section */}
         <section className=" text-white pt-5">
@@ -509,7 +509,7 @@ export default function Home() {
         <h4 className="text-white/40 text-[50px] sm:text-[200px] font-bold text-center">
           PEREKUP-PRO
         </h4>
-      </div>
+      </section>
     </main>
   );
 }

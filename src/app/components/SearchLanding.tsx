@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import type { Car } from "@/app/types/Car";
 import CarList from "@/app/components/CarList";
+import Header from "./Header";
 
 interface Option {
   id: number;
@@ -139,8 +140,9 @@ export default function SearchLanding() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-black to-red-900 text-black p-4 sm:p-6 md:p-10">
-      <div className="max-w-7xl mx-auto rounded-3xl bg-white p-6 md:p-10 space-y-6 shadow-xl">
+    <section className="bg-gradient-to-b from-black to-red-900 text-black">
+      <Header />
+      <div className="max-w-7xl mx-auto rounded-[20px] bg-white space-y-6 shadow-xl mt-10 p-10 sm:p-6 md:p-20">
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm"

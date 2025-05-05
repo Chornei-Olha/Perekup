@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="relative px-4 sm:px-16">
+    <div className="relative pt-4 px-4 sm:px-16">
       <div className="flex flex-col md:flex-row justify-between items-left sm:items-center">
         {/* Logo */}
         <div className="flex flex-col mb-[25px] sm:mb-0">

@@ -2,10 +2,9 @@ import Header from "@/app/components/Header";
 
 export default function SubscriptionPage() {
   return (
-    <main className="w-full min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white py-12 px-4">
-      <div className="max-w-6xl mx-auto">
-        <Header />
-
+    <main className="w-full min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white">
+      <Header />
+      <section className="max-w-6xl mx-auto py-12 px-4">
         {/* Pricing Cards */}
         <div className="grid  grid-cols-1 sm:grid-cols-3 gap-6 mb-12 mt-10 sm:mt-20">
           {[
@@ -57,7 +56,7 @@ export default function SubscriptionPage() {
         <p className="font-['Plus_Jakarta_Sans'] text-2xl">Тест Jakarta</p>
         <h4 className="font-['Manrope'] text-2xl">Тест Manrope</h4>
         <p className="font-['Open_Sans'] text-2xl">Тест Opensans</p>
-      </div>
+      </section>
     </main>
   );
 }
