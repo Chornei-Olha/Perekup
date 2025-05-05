@@ -140,7 +140,7 @@ export default function SearchLanding() {
   };
 
   return (
-    <section className="bg-gradient-to-b from-black to-red-900 text-black">
+    <section className="bg-gradient-to-b from-black to-red-900 text-black  py-10 px-20">
       <Header />
       <div className="max-w-7xl mx-auto rounded-[20px] bg-white space-y-6 shadow-xl mt-10 p-10 sm:p-6 md:p-20">
         <form

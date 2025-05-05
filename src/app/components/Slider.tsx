@@ -48,7 +48,9 @@ export default function Slider() {
   return (
     <section className="bg-gradient-to-br from-black to-red-900 py-10 px-4">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-white text-3xl font-bold mb-6">ТОП 50</h2>
+        <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-white text-[30px] sm:text-[50px] mb-6">
+          ТОП 50
+        </h2>
 
         <div className="overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-500">
