@@ -8,7 +8,7 @@ export default function Header() {
         {/* Logo */}
         <div className="flex flex-col mb-[25px] sm:mb-0">
           <Link href="/">
-            <h1 className="font-['Inter'] font-bold text-xl sm:text-5xl text-white">
+            <h1 className="font-['Inter'] font-bold text-3xl sm:text-5xl text-white">
               PEREKUP-PRO
             </h1>
             <p className="font-['Inter'] text-sm text-gray-400">
