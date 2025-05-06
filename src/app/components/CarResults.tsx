@@ -28,11 +28,17 @@ export default function CarResults({ results }: Props) {
           return (
             <div
               key={car.id}
-              className="border rounded-xl flex overflow-hidden shadow-sm hover:shadow-md transition"
+              className="border rounded-xl flex flex-col sm:flex-row overflow-hidden shadow-sm hover:shadow-md transition"
             >
-              <div className="w-44 h-32 flex-shrink-0">
+              <div className="w-90 sm:w-50 h-auto flex-shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={car.image} alt={car.title} width={300} height={200} />
+                <img
+                  src={car.image}
+                  alt={car.title}
+                  className="    width=full
+                  height=full
+                  object-cover"
+                />
               </div>
 
               <div className="p-4 flex-1 grid gap-1">
@@ -45,14 +51,14 @@ export default function CarResults({ results }: Props) {
                         rel="noopener noreferrer"
                         className="hover:underline"
                       >
-                        {car.title} {car.year}
+                        {car.title}
                       </a>
                     </h3>
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-white">
                       {car.year} • {car.mileage.toLocaleString()} км •{" "}
                       {getGearboxLabel(car.gearbox)} • {car.fuel}
                     </p>
-                    <p className="text-sm text-gray-600">{car.city}</p>
+                    <p className="text-sm text-white">{car.city}</p>
                     <p className="text-sm text-gray-500">
                       Днів у продажу: {car.daysInSale}
                     </p>
@@ -69,7 +75,7 @@ export default function CarResults({ results }: Props) {
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 mt-2 max-h-20 overflow-hidden text-ellipsis line-clamp-3">
+                <p className="text-sm text-gray-400 mt-2 max-h-20 overflow-hidden text-ellipsis line-clamp-3">
                   {car.description}
                 </p>
               </div>

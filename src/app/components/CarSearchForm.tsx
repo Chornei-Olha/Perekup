@@ -94,181 +94,192 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="space-y-4 p-4 max-w-xl mx-auto">
-      {/* Марка */}
-      <div>
-        <label className="block mb-1">Марка</label>
-        <select
-          value={selectedBrand}
-          onChange={(e) => setSelectedBrand(Number(e.target.value))}
-          className="w-full border p-2 rounded"
+    <form onSubmit={handleSearch} className="pt-10 sm:pt-15">
+      <div className="flex flex-col sm:flex-row">
+        {" "}
+        <div className="space-y-4 sm:space-y-8 pt-8 pl-4 pr-4 sm:p-8 w-full sm:w-xl mx-auto">
+          {/* Марка */}
+          <div>
+            <label className="font-['Inter'] font-medium block mb-1">
+              Марка
+            </label>
+            <select
+              value={selectedBrand}
+              onChange={(e) => setSelectedBrand(Number(e.target.value))}
+              className="w-full border p-2 rounded"
+            >
+              {brands.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          {/* Модель */}
+          <div>
+            <label className="font-['Inter'] font-medium block mb-1">
+              Модель
+            </label>
+            {selectedBrand !== 0 && models.length > 0 ? (
+              <select
+                name="model"
+                value={selectedModels[0] || ""}
+                onChange={(e) => setSelectedModels([Number(e.target.value)])}
+                className="w-full border p-2 rounded"
+              >
+                <option value="">Выберите модель</option>
+                {models.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <p className="text-sm text-gray-500">
+                Выберите марку для отображения моделей
+              </p>
+            )}
+          </div>
+          {/* Регион */}
+          <div>
+            <label className="font-['Inter'] font-medium block mb-1">
+              Регион
+            </label>
+            <select name="region" className="w-full border p-2 rounded">
+              <option value="">Вся Украина</option>
+              {regions.map((r) => (
+                <option key={r.id} value={r.id}>
+                  {r.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="grid grid-cols-2 gap-2">
+            <select name="gearbox" className="border p-2 rounded">
+              <option value="">КПП</option>
+              <option value="0">Механіка</option>
+              <option value="1">Автомат</option>
+            </select>
+
+            <select name="fuel" className="border p-2 rounded">
+              <option value="">Паливо</option>
+              <option value="0">Бензин</option>
+              <option value="1">Дизель</option>
+              <option value="2">Електро</option>
+              <option value="3">Гібрид</option>
+              <option value="4">Інше</option>
+            </select>
+          </div>
+          <input
+            name="deviation"
+            type="number"
+            placeholder="% відхилення"
+            className="border p-2 rounded w-full"
+          />
+        </div>
+        <div className="space-y-4 sm:space-y-7 pt-3 pl-4 pr-4 sm:p-8 w-full sm:w-xl mx-auto">
+          {/* Остальные поля — без изменений */}
+          <div className="grid grid-cols-3 gap-2">
+            <label className="font-['Inter'] font-medium block mb-1">
+              Цена, $
+            </label>
+            <input
+              name="minPrice"
+              placeholder="1000"
+              type="number"
+              className="border p-2 rounded"
+            />
+            <input
+              name="maxPrice"
+              placeholder="100000"
+              type="number"
+              className="border p-2 rounded"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <label className="font-['Inter'] font-medium block mb-1">Год</label>
+            <input
+              name="minYear"
+              defaultValue={2010}
+              type="number"
+              className="border p-2 rounded"
+            />
+            <input
+              name="maxYear"
+              defaultValue={2025}
+              type="number"
+              className="border p-2 rounded"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <label className="font-['Inter'] font-medium block mb-1">
+              Объем, см3
+            </label>
+            <input
+              name="minEngine"
+              placeholder="0"
+              type="number"
+              step="0.1"
+              className="border p-2 rounded"
+            />
+            <input
+              name="maxEngine"
+              placeholder="6.5"
+              type="number"
+              step="0.1"
+              className="border p-2 rounded"
+            />
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <label className="font-['Inter'] font-medium block mb-1">
+              Пробег
+            </label>
+            <input
+              name="minMileage"
+              placeholder="100"
+              type="number"
+              className="border p-2 rounded"
+            />
+            <input
+              name="maxMileage"
+              placeholder="1000000"
+              type="number"
+              className="border p-2 rounded"
+            />
+          </div>
+          <label>
+            <input name="paint" type="checkbox" className="mr-2" /> Крашенные
+          </label>
+          <br />
+          <label>
+            <input name="transfer" type="checkbox" className="mr-2" />{" "}
+            Пригнанные
+          </label>
+          <br />
+          <label>
+            <input name="sold" type="checkbox" className="mr-2" /> Проданные
+          </label>
+          <br />
+          <label>
+            <input name="includeDealers" type="checkbox" className="mr-2" />{" "}
+            Включить диллеров
+          </label>
+          <br />
+          <label>
+            <input name="includeBanned" type="checkbox" className="mr-2" />{" "}
+            Включить заблокированные
+          </label>
+        </div>
+      </div>
+
+      <div className="space-y-4 p-7 text-center mx-auto">
+        <button
+          type="submit"
+          className="font-['Inter'] font-extralight text-[15px] sm:text-[20px] bg-[#9D0D14] hover:bg-red-700 transition px-20 py-2 rounded-[20px] text-white"
         >
-          {brands.map((b) => (
-            <option key={b.id} value={b.id}>
-              {b.name}
-            </option>
-          ))}
-        </select>
+          Подобрать авто
+        </button>
       </div>
-
-      {/* Модель */}
-      <div>
-        <label className="block mb-1">Модель</label>
-        {selectedBrand !== 0 && models.length > 0 ? (
-          <select
-            name="model"
-            value={selectedModels[0] || ""}
-            onChange={(e) => setSelectedModels([Number(e.target.value)])}
-            className="w-full border p-2 rounded"
-          >
-            <option value="">Выберите модель</option>
-            {models.map((m) => (
-              <option key={m.id} value={m.id}>
-                {m.name}
-              </option>
-            ))}
-          </select>
-        ) : (
-          <p className="text-sm text-gray-500">
-            Выберите марку для отображения моделей
-          </p>
-        )}
-      </div>
-
-      {/* Регион */}
-      <div>
-        <label className="block mb-1">Регион</label>
-        <select name="region" className="w-full border p-2 rounded">
-          <option value="">Вся Украина</option>
-          {regions.map((r) => (
-            <option key={r.id} value={r.id}>
-              {r.name}
-            </option>
-          ))}
-        </select>
-      </div>
-
-      {/* Остальные поля — без изменений */}
-      <div className="grid grid-cols-3 gap-2">
-        <label className="block mb-1">Цена, $</label>
-        <input
-          name="minPrice"
-          placeholder="1000"
-          type="number"
-          className="border p-2 rounded"
-        />
-        <input
-          name="maxPrice"
-          placeholder="100000"
-          type="number"
-          className="border p-2 rounded"
-        />
-      </div>
-
-      <div className="grid grid-cols-3 gap-2">
-        <label className="block mb-1">Год</label>
-        <input
-          name="minYear"
-          defaultValue={2010}
-          type="number"
-          className="border p-2 rounded"
-        />
-        <input
-          name="maxYear"
-          defaultValue={2025}
-          type="number"
-          className="border p-2 rounded"
-        />
-      </div>
-
-      <div className="grid grid-cols-3 gap-2">
-        <label className="block mb-1">Объем, см3</label>
-        <input
-          name="minEngine"
-          placeholder="0"
-          type="number"
-          step="0.1"
-          className="border p-2 rounded"
-        />
-        <input
-          name="maxEngine"
-          placeholder="6.5"
-          type="number"
-          step="0.1"
-          className="border p-2 rounded"
-        />
-      </div>
-
-      <div className="grid grid-cols-3 gap-2">
-        <label className="block mb-1">Пробег</label>
-        <input
-          name="minMileage"
-          placeholder="100"
-          type="number"
-          className="border p-2 rounded"
-        />
-        <input
-          name="maxMileage"
-          placeholder="1000000"
-          type="number"
-          className="border p-2 rounded"
-        />
-      </div>
-
-      <div className="grid grid-cols-2 gap-2">
-        <select name="gearbox" className="border p-2 rounded">
-          <option value="">КПП</option>
-          <option value="0">Механіка</option>
-          <option value="1">Автомат</option>
-        </select>
-
-        <select name="fuel" className="border p-2 rounded">
-          <option value="">Паливо</option>
-          <option value="0">Бензин</option>
-          <option value="1">Дизель</option>
-          <option value="2">Електро</option>
-          <option value="3">Гібрид</option>
-          <option value="4">Інше</option>
-        </select>
-      </div>
-
-      <input
-        name="deviation"
-        type="number"
-        placeholder="% відхилення"
-        className="border p-2 rounded w-full"
-      />
-
-      <div className="space-y-2">
-        <label>
-          <input name="paint" type="checkbox" className="mr-2" /> Крашенные
-        </label>
-        <br />
-        <label>
-          <input name="transfer" type="checkbox" className="mr-2" /> Пригнанные
-        </label>
-        <br />
-        <label>
-          <input name="sold" type="checkbox" className="mr-2" /> Проданные
-        </label>
-        <br />
-        <label>
-          <input name="includeDealers" type="checkbox" className="mr-2" />{" "}
-          Включить диллеров
-        </label>
-        <br />
-        <label>
-          <input name="includeBanned" type="checkbox" className="mr-2" />{" "}
-          Включить заблокированные
-        </label>
-      </div>
-
-      <button
-        type="submit"
-        className="bg-red-700 text-white py-2 px-4 rounded w-full"
-      >
-        Подобрать авто
-      </button>
     </form>
   );
 };
