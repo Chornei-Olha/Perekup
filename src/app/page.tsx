@@ -132,7 +132,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-6 mt-10">
               {[
                 { name: "Lexus", count: 380, img: "/images/lexus.png" },
-                { name: "Мерс", count: 290, img: "/images/merc.png" },
+                { name: "Hyundai", count: 234, img: "/images/hyundai.png" },
                 { name: "Suzuki", count: 264, img: "/images/suzuki.png" },
                 { name: "Honda", count: 245, img: "/images/honda.png" },
                 { name: "Hyundai", count: 234, img: "/images/hyundai.png" },
