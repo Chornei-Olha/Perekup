@@ -1,6 +1,14 @@
+"use client";
+
 import Header from "@/app/components/Header";
+import { useRouter } from "next/navigation";
 
 export default function SubscriptionPage() {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/search");
+  };
   return (
     <main className="w-full min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white">
       <Header />
@@ -41,7 +49,10 @@ export default function SubscriptionPage() {
                   {item.description}
                 </p>
               </div>
-              <button className="font-['Inter'] font-bold bg-gradient-to-r from-[#821810] to-[#000000] text-white px-6 py-2 rounded-[6px] text-[12px] w-[213px] h-[63px] cursor">
+              <button
+                onClick={handleClick}
+                className="font-['Inter'] font-bold bg-gradient-to-r from-[#821810] to-[#000000] hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#821810] text-white px-6 py-2 rounded-[6px] text-[12px] w-[213px] h-[63px]"
+              >
                 Оплатить
               </button>
             </div>
