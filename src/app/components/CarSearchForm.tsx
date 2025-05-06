@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { CarSearchFilters } from "../../lib/types";
-// Тип для опций, которые будут передаваться в формы
+
 type Option = { id: number; name: string };
 
 interface CarSearchFormProps {
-  onSubmit: (filters: CarSearchFilters) => void; // Типизируем onSubmit проп
+  onSubmit: (filters: CarSearchFilters) => void;
 }
 
 const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
@@ -14,33 +14,31 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
   const [brands, setBrands] = useState<Option[]>([]);
   const [models, setModels] = useState<Option[]>([]);
 
-  const [selectedBrands, setSelectedBrands] = useState<number[]>([]);
+  const [selectedBrand, setSelectedBrand] = useState<number>(0); // Одиночный выбор
   const [selectedModels, setSelectedModels] = useState<number[]>([]);
 
   useEffect(() => {
     fetch("/api/regions")
       .then((res) => res.json())
-      .then(setRegions);
+      .then((data) => setRegions(data));
 
     fetch("/api/brands")
       .then((res) => res.json())
-      .then(setBrands);
+      .then((data) => setBrands([{ id: 0, name: "Все марки" }, ...data]));
   }, []);
 
   useEffect(() => {
-    if (selectedBrands.length > 0) {
+    if (selectedBrand && selectedBrand !== 0) {
       fetch("/api/models/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ brands: selectedBrands }),
+        body: JSON.stringify({ brands: [selectedBrand] }),
       })
         .then((res) => res.json())
         .then((data) => {
-          if (Array.isArray(data)) {
-            setModels(data);
-          } else if (Array.isArray(data.models)) {
-            setModels(data.models);
-          } else {
+          if (Array.isArray(data)) setModels(data);
+          else if (Array.isArray(data.models)) setModels(data.models);
+          else {
             console.error("Unexpected response format", data);
             setModels([]);
           }
@@ -50,9 +48,10 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
           setModels([]);
         });
     } else {
-      setModels([]); // очищаем, если ничего не выбрано
+      setModels([]);
+      setSelectedModels([]); // очищаем при выборе "Все марки"
     }
-  }, [selectedBrands]);
+  }, [selectedBrand]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -61,8 +60,8 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
     const formData = new FormData(form);
 
     const data: CarSearchFilters = {
-      brands: selectedBrands,
-      models: selectedModels,
+      brands: selectedBrand === 0 ? [] : [selectedBrand],
+      models: selectedModels.length > 0 ? selectedModels : [],
       region: Number(formData.get("region")) || undefined,
       minPrice: Number(formData.get("minPrice")) || undefined,
       maxPrice: Number(formData.get("maxPrice")) || undefined,
@@ -91,21 +90,17 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
       period: 72,
     };
 
-    onSubmit(data); // Передаем данные обратно в родительский компонент
+    onSubmit(data);
   };
 
   return (
     <form onSubmit={handleSearch} className="space-y-4 p-4 max-w-xl mx-auto">
-      {/* Выбор марки */}
+      {/* Марка */}
       <div>
         <label className="block mb-1">Марка</label>
         <select
-          multiple
-          onChange={(e) =>
-            setSelectedBrands(
-              Array.from(e.target.selectedOptions, (opt) => Number(opt.value))
-            )
-          }
+          value={selectedBrand}
+          onChange={(e) => setSelectedBrand(Number(e.target.value))}
           className="w-full border p-2 rounded"
         >
           {brands.map((b) => (
@@ -116,27 +111,31 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         </select>
       </div>
 
-      {/* Выбор модели */}
+      {/* Модель */}
       <div>
         <label className="block mb-1">Модель</label>
-        <select
-          multiple
-          onChange={(e) =>
-            setSelectedModels(
-              Array.from(e.target.selectedOptions, (opt) => Number(opt.value))
-            )
-          }
-          className="w-full border p-2 rounded"
-        >
-          {models.map((m) => (
-            <option key={m.id} value={m.id}>
-              {m.name}
-            </option>
-          ))}
-        </select>
+        {selectedBrand !== 0 && models.length > 0 ? (
+          <select
+            name="model"
+            value={selectedModels[0] || ""}
+            onChange={(e) => setSelectedModels([Number(e.target.value)])}
+            className="w-full border p-2 rounded"
+          >
+            <option value="">Выберите модель</option>
+            {models.map((m) => (
+              <option key={m.id} value={m.id}>
+                {m.name}
+              </option>
+            ))}
+          </select>
+        ) : (
+          <p className="text-sm text-gray-500">
+            Выберите марку для отображения моделей
+          </p>
+        )}
       </div>
 
-      {/* Выбор региона */}
+      {/* Регион */}
       <div>
         <label className="block mb-1">Регион</label>
         <select name="region" className="w-full border p-2 rounded">
@@ -149,7 +148,7 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         </select>
       </div>
 
-      {/* Поля для цен и года */}
+      {/* Остальные поля — без изменений */}
       <div className="grid grid-cols-3 gap-2">
         <label className="block mb-1">Цена, $</label>
         <input
@@ -160,7 +159,7 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         />
         <input
           name="maxPrice"
-          placeholder="100 000"
+          placeholder="100000"
           type="number"
           className="border p-2 rounded"
         />
@@ -170,24 +169,20 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         <label className="block mb-1">Год</label>
         <input
           name="minYear"
-          placeholder="2010"
           defaultValue={2010}
           type="number"
           className="border p-2 rounded"
         />
         <input
           name="maxYear"
-          placeholder="2025"
           defaultValue={2025}
           type="number"
           className="border p-2 rounded"
         />
       </div>
 
-      {/* Поля для объема двигателя и пробега */}
       <div className="grid grid-cols-3 gap-2">
         <label className="block mb-1">Объем, см3</label>
-
         <input
           name="minEngine"
           placeholder="0"
@@ -214,13 +209,12 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         />
         <input
           name="maxMileage"
-          placeholder="1000 000"
+          placeholder="1000000"
           type="number"
           className="border p-2 rounded"
         />
       </div>
 
-      {/* КПП и топливо */}
       <div className="grid grid-cols-2 gap-2">
         <select name="gearbox" className="border p-2 rounded">
           <option value="">КПП</option>
@@ -238,7 +232,6 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
         </select>
       </div>
 
-      {/* Вкл/выкл параметры */}
       <input
         name="deviation"
         type="number"
@@ -248,30 +241,26 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
 
       <div className="space-y-2">
         <label>
-          <input name="paint" type="checkbox" className="mr-2" />
-          Крашенные
+          <input name="paint" type="checkbox" className="mr-2" /> Крашенные
         </label>
         <br />
         <label>
-          <input name="transfer" type="checkbox" className="mr-2" />
-          Пригнанные
+          <input name="transfer" type="checkbox" className="mr-2" /> Пригнанные
         </label>
         <br />
         <label>
-          <input name="sold" type="checkbox" className="mr-2" />
-          Проданные
+          <input name="sold" type="checkbox" className="mr-2" /> Проданные
         </label>
         <br />
         <label>
-          <input name="includeDealers" type="checkbox" className="mr-2" />
+          <input name="includeDealers" type="checkbox" className="mr-2" />{" "}
           Включить диллеров
         </label>
         <br />
         <label>
-          <input name="includeBanned" type="checkbox" className="mr-2" />
+          <input name="includeBanned" type="checkbox" className="mr-2" />{" "}
           Включить заблокированные
         </label>
-        <br />
       </div>
 
       <button
@@ -283,4 +272,5 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
     </form>
   );
 };
+
 export default CarSearchForm;
