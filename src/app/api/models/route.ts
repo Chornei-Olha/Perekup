@@ -1,16 +1,4 @@
-// app/api/models/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
-
-// Массив моделей с привязкой к брендам
-const models = [
-  { id: 33, name: "Astra", brandId: 210 },
-  { id: 34, name: "Mokka", brandId: 210 },
-  { id: 35, name: "Zafira", brandId: 210 },
-  { id: 36, name: "CX-5", brandId: 212 },
-  { id: 37, name: "3", brandId: 212 },
-  { id: 38, name: "CR-V", brandId: 240 },
-];
 
 export async function POST(req: NextRequest) {
   try {
@@ -23,15 +11,27 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const filteredModels = models.filter((model) =>
-      brands.includes(model.brandId)
-    );
+    const res = await fetch("https://perecup-pro.com/api/models/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ brands }),
+    });
 
-    return NextResponse.json(filteredModels);
-  } catch (err) {
-    console.error("Ошибка при получении моделей:", err);
+    if (!res.ok) {
+      throw new Error(
+        `Ошибка при запросе моделей: ${res.status} ${res.statusText}`
+      );
+    }
+
+    const models = await res.json();
+
+    return NextResponse.json(models);
+  } catch (error) {
+    console.error("Ошибка при получении моделей с удаленного API:", error);
     return NextResponse.json(
-      { error: "Произошла ошибка при получении моделей." },
+      { error: "Ошибка при получении данных о моделях." },
       { status: 500 }
     );
   }

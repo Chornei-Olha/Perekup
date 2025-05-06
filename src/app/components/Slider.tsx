@@ -9,31 +9,31 @@ const slides = [
   {
     id: 1,
     title: "BMW X2, 2021",
-    img: "/bmw.png",
+    img: "/images/01.png",
     info: "2.3 л/бензин • 317 л.с.",
   },
   {
     id: 2,
     title: "Kia Sportage, 2022",
-    img: "/kia.png",
+    img: "/images/01.png",
     info: "2.3 л/бензин • 317 л.с.",
   },
   {
     id: 3,
     title: "Lexus IS, 2018",
-    img: "/lexus.png",
+    img: "/images/01.png",
     info: "2.3 л/бензин • 317 л.с.",
   },
   {
     id: 4,
     title: "Audi A4, 2020",
-    img: "/audi.png",
+    img: "/images/01.png",
     info: "2.0 л/дизель • 190 л.с.",
   },
   {
     id: 5,
     title: "Toyota Camry, 2019",
-    img: "/camry.png",
+    img: "/images/01.png",
     info: "2.5 л/бензин • 203 л.с.",
   },
 ];
@@ -46,7 +46,7 @@ export default function Slider() {
     setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
   return (
-    <section className="bg-gradient-to-br from-black to-red-900 py-10 px-4">
+    <section className=" py-10 px-4">
       <div className="max-w-7xl mx-auto">
         <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-white text-[30px] sm:text-[50px] mb-6">
           ТОП 50
