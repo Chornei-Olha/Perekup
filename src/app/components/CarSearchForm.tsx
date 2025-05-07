@@ -170,14 +170,17 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
               <option value="4">Інше</option>
             </select>
           </div>
+          <label className="font-['Inter'] font-medium block mb-1">
+            % отклонения
+          </label>{" "}
           <input
             name="deviation"
             type="number"
-            placeholder="% відхилення"
+            placeholder=""
             className="border p-2 rounded w-full"
           />
         </div>
-        <div className="space-y-4 sm:space-y-7 pt-3 pl-4 pr-4 sm:p-8 w-full sm:w-xl mx-auto">
+        <div className="space-y-4 sm:space-y-7 pt-4 pl-4 pr-4 sm:p-8 sm:pt-14 w-full sm:w-xl mx-auto">
           {/* Остальные поля — без изменений */}
           <div className="grid grid-cols-3 gap-2">
             <label className="font-['Inter'] font-medium block mb-1">
@@ -185,13 +188,13 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
             </label>
             <input
               name="minPrice"
-              placeholder="1000"
+              defaultValue={1000}
               type="number"
               className="border p-2 rounded"
             />
             <input
               name="maxPrice"
-              placeholder="100000"
+              defaultValue={100000}
               type="number"
               className="border p-2 rounded"
             />
@@ -200,7 +203,7 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
             <label className="font-['Inter'] font-medium block mb-1">Год</label>
             <input
               name="minYear"
-              defaultValue={2010}
+              defaultValue={2000}
               type="number"
               className="border p-2 rounded"
             />
@@ -217,14 +220,14 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
             </label>
             <input
               name="minEngine"
-              placeholder="0"
+              defaultValue={0}
               type="number"
               step="0.1"
               className="border p-2 rounded"
             />
             <input
               name="maxEngine"
-              placeholder="6.5"
+              defaultValue={6.5}
               type="number"
               step="0.1"
               className="border p-2 rounded"
@@ -236,13 +239,13 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
             </label>
             <input
               name="minMileage"
-              placeholder="100"
+              defaultValue={100}
               type="number"
               className="border p-2 rounded"
             />
             <input
               name="maxMileage"
-              placeholder="1000000"
+              defaultValue={1000000}
               type="number"
               className="border p-2 rounded"
             />

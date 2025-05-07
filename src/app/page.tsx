@@ -129,44 +129,24 @@ export default function Home() {
                 Получай первым самые выгодные предложения.
               </span>
             </h3>
-            <div className="flex flex-wrap justify-center gap-6 mt-10">
-              {[
-                { name: "Lexus", count: 380, img: "/images/lexus.png" },
-                { name: "Hyundai", count: 234, img: "/images/hyundai.png" },
-                { name: "Suzuki", count: 264, img: "/images/suzuki.png" },
-                { name: "Honda", count: 245, img: "/images/honda.png" },
-                { name: "Hyundai", count: 234, img: "/images/hyundai.png" },
-                { name: "Ferrari", count: 109, img: "/images/ferrari.png" },
-              ].map((brand) => (
-                <div
-                  key={brand.name}
-                  className="bg-white rounded-2xl shadow-md flex flex-col items-center justify-center p-4 w-42 h-20"
-                >
-                  <div className="flex-1 flex items-center justify-center">
-                    <Image
-                      src={brand.img}
-                      alt={brand.name}
-                      width={80}
-                      height={80}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div className="text-center mt-2">
-                    <p className="font-['Manrope'] font-medium text-[12px] sm:text-[16px] text-[#667085]">
-                      {brand.count} Cars
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div>
+              {" "}
+              <Image
+                src="/images/logo-row.svg"
+                alt="all brands"
+                width={300}
+                height={80}
+                className="w-full p-3 sm:p-8 filter grayscale hidden sm:block"
+              />
             </div>
           </div>
         </div>
 
         {/* How It Works Section */}
-        <section className=" text-white pt-5">
-          <div className="max-w-7xl ml-auto flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="bg-[#FF001D] rounded-2xl p-6 sm:p-8 text-white max-w-md shadow-lg relative">
-              <p className="font-['Open_Sans'] font-regular text-[11px] sm:text-[14px] mb-6">
+        <section className="relative text-white pt-5 sm:pb-15">
+          <div className="container mx-auto flex">
+            <div className="bg-[#FF001D] rounded-2xl m-4 sm:m-3 p-6 sm:p-8 text-white max-w-md shadow-lg relative">
+              <p className="font-['Open_Sans'] font-regular text-[12px] sm:text-[14px] mb-15">
                 Выбрать и купить новый автомобиль на PERECUP можно достаточно
                 просто и быстро — благодаря удобному подбору авто по параметрам,
                 сервису сравнения автомобилей и интуитивно простой навигации.
@@ -178,7 +158,7 @@ export default function Home() {
                 ВХОД НА ПОРТАЛ
               </button>
 
-              <div className="absolute right-0 bottom-0 w-28 md:w-50">
+              <div className="absolute right-0 bottom-0 w-45 md:w-60">
                 <Image
                   src="/images/02.png"
                   alt="Red sports car"
@@ -188,16 +168,15 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            <div className="flex items-center justify-center relative w-full md:w-auto">
-              <Image
-                src="/images/01.png"
-                alt="White SUV"
-                width={600}
-                height={300}
-                className="object-contain"
-              />
-            </div>
+          </div>
+          <div className="absolute top-0 right-0">
+            <Image
+              src="/images/04.png"
+              alt="White SUV"
+              width={550}
+              height={300}
+              className="object-contain hidden sm:block"
+            />
           </div>
         </section>
         {/* newSection */}
@@ -227,7 +206,7 @@ export default function Home() {
                     height={76}
                   />
                 </div>
-                <div className="font-['Plus_Jakarta_Sans'] absolute top-20 right-30 text-sm text-[#821810] bg-white p-4 rounded-[5px]">
+                <div className="font-['Inter'] absolute top-20 right-30 text-sm text-[#821810] bg-white p-4 rounded-[5px]">
                   {" "}
                   Все авто в одном месте
                 </div>
@@ -289,7 +268,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="relative order-2 md:order-2">
+              <div className="order-2 md:order-2">
                 <div className="relative h-[400px] w-[auto] sm:h-[538px] sm:w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
                   <div>
                     <div className="flex space-x-2 mb-6">
@@ -329,14 +308,14 @@ export default function Home() {
                       вариантов, наш сервис кардинально изменит твой доход!
                     </p>
                   </div>
+                  <Image
+                    src="/images/01.png"
+                    alt="Car"
+                    width={700}
+                    height={100}
+                    className="absolute max-w-[430px] sm:max-w-[819px] h-auto mt-8 bottom-[-60px] sm:bottom-[-105px] right-[-30px] sm:right-[-70px]"
+                  />
                 </div>
-                <Image
-                  src="/images/04.png"
-                  alt="Car"
-                  width={700}
-                  height={100}
-                  className="absolute max-w-[430px] sm:max-w-[819px] h-auto mt-8 bottom-[-30px] sm:bottom-[40px] right-[-30px] sm:right-[-40px]"
-                />
               </div>
             </div>
           </div>

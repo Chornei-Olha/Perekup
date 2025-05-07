@@ -41,7 +41,7 @@ export default function RegistrationPage() {
 
       {/* Контент */}
       <div className="relative z-10 min-h-screen max-w-4xl w-full mx-auto gap-8 items-center pt-20 px-4 sm:px-0">
-        <p className="font-['Monrope'] font-bold text-base sm:text-xl mb-10 text-center">
+        <p className="font-['Inter'] font-bold text-base sm:text-xl mb-10 text-center">
           После регистрации, вам будет доступно 1 день бесплатного пользования.
           За это время вы можете приобрести авто по наиболее выгодным ценам в
           Украине.
@@ -125,7 +125,7 @@ export default function RegistrationPage() {
               className="font-['Inter'] font-bold w-full sm:w-auto bg-[#9D0D14] hover:bg-red-700 text-white px-6 py-2 rounded-[20px] mt-4 sm:mt-0"
               onClick={handleRegister}
             >
-              Регистрация
+              Получить код
             </button>
           </div>
         </div>
