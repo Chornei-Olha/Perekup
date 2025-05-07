@@ -45,6 +45,7 @@ export default function CarResults({ results }: Props) {
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="font-semibold text-lg">
+                      🚘
                       <a
                         href={car.url}
                         target="_blank"

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { searchCars } from "@/lib/api";
 import CarResults from "@/app/components/CarResults";
 import CarSearchForm from "@/app/components/CarSearchForm";
-import Slider from "../components/Slider";
+import Top50Slider from "../components/Slider";
 
 import { Car, CarSearchFilters } from "@/lib/types";
 import Header from "../components/Header";
@@ -31,8 +31,8 @@ export default function HomePage() {
       {" "}
       <Header />
       <CarSearchForm onSubmit={handleSearch} />
+      <Top50Slider />
       {loading ? <p>Завантаження...</p> : <CarResults results={results} />}
-      <Slider />
     </section>
   );
 }

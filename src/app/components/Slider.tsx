@@ -1,99 +1,114 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-// import clsx from "clsx";
+import { useSwipeable } from "react-swipeable";
+import { searchCars } from "@/lib/api";
+import { Car } from "@/lib/types";
 
-const slides = [
-  {
-    id: 1,
-    title: "BMW X2, 2021",
-    img: "/images/01.png",
-    info: "2.3 л/бензин • 317 л.с.",
-  },
-  {
-    id: 2,
-    title: "Kia Sportage, 2022",
-    img: "/images/01.png",
-    info: "2.3 л/бензин • 317 л.с.",
-  },
-  {
-    id: 3,
-    title: "Lexus IS, 2018",
-    img: "/images/01.png",
-    info: "2.3 л/бензин • 317 л.с.",
-  },
-  {
-    id: 4,
-    title: "Audi A4, 2020",
-    img: "/images/01.png",
-    info: "2.0 л/дизель • 190 л.с.",
-  },
-  {
-    id: 5,
-    title: "Toyota Camry, 2019",
-    img: "/images/01.png",
-    info: "2.5 л/бензин • 203 л.с.",
-  },
-];
-
-export default function Slider() {
+export default function Top50Slider() {
+  const [cars, setCars] = useState<Car[]>([]);
   const [current, setCurrent] = useState(0);
+  const itemsPerSlide = 3;
+  const [isMobile, setIsMobile] = useState(false);
 
-  const next = () => setCurrent((prev) => (prev + 1) % slides.length);
-  const prev = () =>
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  useEffect(() => {
+    async function load() {
+      const all = await searchCars({
+        brands: [],
+        models: [],
+        minYear: 2000,
+        maxYear: 2025,
+        period: 72,
+      });
+      const sorted = all.sort((a, b) => b.price - a.price).slice(0, 50);
+      setCars(sorted);
+    }
+    load();
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const next = () =>
+    setCurrent((prev) =>
+      Math.min(prev + 1, cars.length - (isMobile ? 1 : itemsPerSlide))
+    );
+  const prev = () => setCurrent((prev) => Math.max(prev - 1, 0));
+
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: next,
+    onSwipedRight: prev,
+    trackMouse: true,
+  });
 
   return (
-    <section className=" py-10 px-4">
+    <section className="py-10 px-4" {...swipeHandlers}>
       <div className="max-w-7xl mx-auto">
         <h2 className="font-['Plus_Jakarta_Sans'] font-bold text-white text-[30px] sm:text-[50px] mb-6">
           ТОП 50
         </h2>
 
         <div className="overflow-hidden">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-500">
-            {slides.slice(current, current + 3).map((slide) => (
-              <div
-                key={slide.id}
-                className="bg-white rounded-3xl p-4 flex flex-col items-center shadow-xl relative"
-              >
-                <span className="absolute top-2 right-2 bg-[#9f1b1b] text-white text-xs px-2 py-0.5 rounded">
-                  топ
-                </span>
-                <Image
-                  src={slide.img}
-                  alt={slide.title}
-                  width={240}
-                  height={140}
-                  className="object-contain"
-                />
-                <h3 className="font-semibold text-center mt-4">
-                  {slide.title}
-                </h3>
-                <p className="text-sm text-gray-600 mb-4">{slide.info}</p>
-                <button className="bg-[#1a1a1a] text-white text-sm py-1 px-4 rounded mb-2">
-                  Подробнее
-                </button>
-                <div className="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center">
-                  ⚡
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-transform duration-500 ${
+              isMobile ? "grid-cols-1" : ""
+            }`}
+          >
+            {cars
+              .slice(current, current + (isMobile ? 1 : itemsPerSlide))
+              .map((car) => (
+                <div
+                  key={car.id}
+                  className="bg-white rounded-3xl p-4 flex flex-col items-center shadow-xl relative"
+                >
+                  <span className="absolute top-2 right-2 bg-[#9f1b1b] text-white text-xs px-2 py-0.5 rounded">
+                    топ
+                  </span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={car.image}
+                    alt={car.title}
+                    width={240}
+                    height={140}
+                    className="object-contain"
+                  />
+                  <h3 className="font-semibold text-center mt-4">
+                    {car.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 mb-1">{car.year}</p>
+                  <p className="text-md font-bold text-black mb-4">
+                    {car.price.toLocaleString()}$
+                  </p>
+                  <div className="flex flex-col gap-2 items-center flex-grow">
+                    <button
+                      className="font-['Inter'] font-bold bg-gradient-to-r from-[#821810] to-[#000000] hover:bg-gradient-to-r hover:from-[#000000] hover:to-[#821810] text-white px-6 py-2 rounded-[6px] text-[12px] w-[180px] h-[45px] mb-3 mt-auto"
+                      onClick={() => window.open(car.url, "_blank")}
+                    >
+                      Подробнее
+                    </button>
+                    <div className="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center">
+                      ⚡
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
 
-          {/* Arrows */}
           <div className="flex justify-center mt-6 gap-4">
             <button
               onClick={prev}
-              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+              className="bg-black p-2 rounded-full shadow-md hover:bg-gray-400"
             >
               <ArrowLeft />
             </button>
             <button
               onClick={next}
-              className="bg-white p-2 rounded-full shadow-md hover:bg-gray-200"
+              className="bg-black p-2 rounded-full shadow-md hover:bg-gray-400"
             >
               <ArrowRight />
             </button>
