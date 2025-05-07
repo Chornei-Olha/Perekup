@@ -105,27 +105,27 @@ export default function Home() {
         >
           <Header />
           <div className="px-4 pb-5 mt-18 sm:mt-24 text-center">
-            <h1 className="font-['Plus_Jakarta_Sans'] text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
+            <h1 className="font-['Open_Sans'] text-bold text-3xl sm:text-5xl font-bold tracking-wide leading-tight">
               ЛУЧШИЙ ИНСТРУМЕНТ ДЛЯ ПОИСКА
               <br />
               АВТОМОБИЛЕЙ НИЖЕ РЫНОЧНОЙ ЦЕНЫ
             </h1>
-            <h2 className="font-['Plus_Jakarta_Sans'] mt-8 text-md sm:text-2xl font-light max-w-4xl mx-auto">
+            <h2 className="font-['Inter'] mt-8 text-md sm:text-2xl font-light max-w-4xl mx-auto">
               Только у нас Вы получите актуальные предложения от владельцев по
               всей Украине, со всех интернет ресурсов по интересным ценам
             </h2>
             <button
               onClick={handleClick}
-              className="font-['Plus_Jakarta_Sans'] font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white"
+              className="font-['Inter'] font-bold text-[15px] sm:text-[30px] bg-[#9D0D14] hover:bg-red-700 transition px-7 py-3 mt-12 rounded-[20px] text-white"
             >
               ВХОД НА ПОРТАЛ
             </button>
 
-            <h3 className="font-['Plus_Jakarta_Sans'] font-medium mt-6 text-base pt-5">
+            <h3 className="font-['Inter'] font-medium mt-6 text-base pt-5">
               Самый удобный сервис. Все сайты в одном кабинете AutoRia, OLX,
               RST, Avtobazar и др.
               <br />
-              <span className="font-['Plus_Jakarta_Sans'] font-semibold">
+              <span className="font-['Inter'] font-semibold">
                 Получай первым самые выгодные предложения.
               </span>
             </h3>
@@ -173,7 +173,7 @@ export default function Home() {
               </p>
               <button
                 onClick={handleClick}
-                className="font-['Plus_Jakarta_Sans'] font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition"
+                className="font-['Inter'] font-bold text-[12px] sm:text-[14px] bg-white text-[#821810] py-2 px-4 rounded-xl hover:bg-gray-200 transition"
               >
                 ВХОД НА ПОРТАЛ
               </button>
@@ -406,10 +406,10 @@ export default function Home() {
               {serviceBenefits.map((benefit, index) => (
                 <div key={index} className="bg-transparent border-none">
                   <div className="flex flex-col h-full">
-                    <h3 className="font-['Plus_Jakarta_Sans'] text-xl font-semibold text-center mb-6">
+                    <h3 className="font-['Inter'] text-xl font-semibold text-center mb-6">
                       {benefit.title}
                     </h3>
-                    <p className="font-['Plus_Jakarta_Sans'] font-extralight text-sm flex-grow mb-6">
+                    <p className="font-['Inter'] font-extralight text-sm flex-grow mb-6">
                       {benefit.description}
                     </p>
                     <button
