@@ -241,12 +241,12 @@ export default function Home() {
         </section>
         {/* Additional features section */}
         <section className="py-16 relative overflow-hidden">
-          <div className="container mx-auto px-4 relative z-10">
-            <div className="flex flex-col md:flex-row justify-between items-start w-full gap-y-10 gap-x-20">
-              {/* Левая колонка — не "уезжает" и ограничена по ширине */}
-              <div className="space-y-8 order-1 md:order-2 w-full md:max-w-[50%]">
+          <div className="container max-w-screen-2xl mx-auto px-4 relative z-10">
+            <div className="flex flex-col md:flex-row justify-between w-full gap-10">
+              {/* Левая колонка — контакты */}
+              <div className="w-full md:w-1/2 pr-4 space-y-8 order-1 md:order-1">
                 {additionalFeatures.map((feature, index) => (
-                  <div key={index} className="flex gap-10">
+                  <div key={index} className="flex gap-6">
                     <div className="flex-shrink-0">
                       <div className="w-12 sm:w-16 h-12 sm:h-16 rounded-full bg-gradient-to-b from-[#851010] to-[#1F0404] flex items-center justify-center">
                         <Image
@@ -259,62 +259,58 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="text-white">
-                      <h3 className="font-['Open_Sans'] text-xl sm:text-2xl font-semibold mb-4">
+                      <h3 className="text-xl sm:text-2xl font-semibold mb-2">
                         {feature.title}
                       </h3>
-                      <p className="font-['Open_Sans'] text-base">
-                        {feature.description}
-                      </p>
+                      <p className="text-base">{feature.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Правая колонка — ограничена по ширине */}
-              <div className="order-2 md:order-2 w-full md:max-w-[50%]">
-                <div className="relative h-[400px] sm:h-[538px] sm:w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
-                  <div>
-                    <div className="flex space-x-2 mb-6">
-                      {/* Иконки */}
-                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-900 flex items-center justify-center">
-                        <Image
-                          src="/images/vector5.svg"
-                          alt=""
-                          width={200}
-                          height={100}
-                          className="w-5 sm:w-8 h-5 sm:h-8"
-                        />
-                      </div>
-                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-black flex items-center justify-center">
-                        <Image
-                          src="/images/vector6.svg"
-                          alt=""
-                          width={200}
-                          height={100}
-                          className="w-5 sm:w-8 h-5 sm:h-8"
-                        />
-                      </div>
-                      <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-800 flex items-center justify-center">
-                        <Image
-                          src="/images/vector7.svg"
-                          alt=""
-                          width={200}
-                          height={100}
-                          className="w-5 sm:w-8 h-5 sm:h-8"
-                        />
-                      </div>
+              {/* Правая колонка — блок с картинкой */}
+              <div className="w-full md:w-1/2 pl-4 order-2">
+                <div className="relative h-[400px] sm:h-[538px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
+                  <div className="flex space-x-2 mb-6">
+                    {/* Иконки */}
+                    <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-900 flex items-center justify-center">
+                      <Image
+                        src="/images/vector5.svg"
+                        alt=""
+                        width={200}
+                        height={100}
+                        className="w-5 sm:w-8 h-5 sm:h-8"
+                      />
                     </div>
-                    <p className="font-['Open_Sans'] text-[#821810] text-xl sm:text-2xl font-bold text-center mt-4">
-                      Устал сутками сидеть на разных сайтах поисках интересных
-                      вариантов, наш сервис кардинально изменит твой доход!
-                    </p>
+                    <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-black flex items-center justify-center">
+                      <Image
+                        src="/images/vector6.svg"
+                        alt=""
+                        width={200}
+                        height={100}
+                        className="w-5 sm:w-8 h-5 sm:h-8"
+                      />
+                    </div>
+                    <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-800 flex items-center justify-center">
+                      <Image
+                        src="/images/vector7.svg"
+                        alt=""
+                        width={200}
+                        height={100}
+                        className="w-5 sm:w-8 h-5 sm:h-8"
+                      />
+                    </div>
                   </div>
+                  <p className="text-[#821810] text-xl sm:text-2xl font-bold text-center mt-4">
+                    Устал сутками сидеть на разных сайтах поисках интересных
+                    вариантов, наш сервис кардинально изменит твой доход!
+                  </p>
                   <Image
                     src="/images/01.png"
                     alt="Car"
-                    width={700}
+                    width={800}
                     height={100}
-                    className="absolute max-w-[430px] sm:max-w-[819px] h-auto mt-8 bottom-[-60px] sm:bottom-[-105px] right-[-30px] sm:right-[-70px]"
+                    className="absolute max-w-[430px] sm:max-w-[800px] h-auto mt-8 bottom-[-60px] sm:bottom-[-105px] right-[-30px] sm:right-[-50px]"
                   />
                 </div>
               </div>
