@@ -13,7 +13,6 @@ export default function SubscriptionPage() {
     <main className="w-full min-h-screen bg-gradient-to-br from-[#8B0000] to-black text-white">
       <Header />
       <section className="max-w-6xl mx-auto py-4 px-4">
-        {/* Pricing Cards */}
         <div className="grid  grid-cols-1 sm:grid-cols-3 gap-6 mb-12 mt-10 sm:mt-20">
           {[
             {
@@ -58,8 +57,6 @@ export default function SubscriptionPage() {
             </div>
           ))}
         </div>
-
-        {/* Footer Note */}
         <p className="font-['Inter'] font-extralight text-left text-[#EFEFEF] text-[20px] sm:text-[32px]">
           После оплаты пришлите почту или вайбер
         </p>
