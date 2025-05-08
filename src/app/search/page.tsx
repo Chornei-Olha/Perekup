@@ -5,7 +5,6 @@ import { searchCars } from "@/lib/api";
 import CarResults from "@/app/components/CarResults";
 import CarSearchForm from "@/app/components/CarSearchForm";
 import Top50Slider from "../components/Slider";
-
 import { Car, CarSearchFilters } from "@/lib/types";
 import Header from "../components/Header";
 
@@ -19,6 +18,16 @@ export default function HomePage() {
     setResults(cars);
     setLoading(false);
   };
+
+  // useEffect(() => {
+  //   const loginDate = localStorage.getItem("loginDate");
+  //   const paid = localStorage.getItem("paid");
+
+  //   const diff = Date.now() - (loginDate ? Number(loginDate) : 0);
+  //   if (!loginDate || (diff > 86400000 && paid !== "true")) {
+  //     router.push("/login"); // ✅ редирект, если доступ просрочен
+  //   }
+  // }, [router]);
 
   return (
     <section

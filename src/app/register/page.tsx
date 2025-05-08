@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "@/app/components/Header";
+// import PhoneLogin from "@/app/components/PhoneLogin";
 
 export default function RegistrationPage() {
   const router = useRouter();
@@ -46,7 +47,7 @@ export default function RegistrationPage() {
           За это время вы можете приобрести авто по наиболее выгодным ценам в
           Украине.
         </p>
-
+        {/* <PhoneLogin /> */}
         <div className="space-y-6">
           {/* Блок: У меня есть аккаунт */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 items-end">
