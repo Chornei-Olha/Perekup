@@ -145,7 +145,7 @@ export default function Home() {
         {/* How It Works Section */}
         <section className="relative text-white pt-5 sm:pb-15">
           <div className="container mx-auto flex">
-            <div className="bg-[#FF001D] rounded-2xl m-4 sm:m-3 p-6 sm:p-8 text-white max-w-md shadow-lg relative">
+            <div className="bg-[#FF001D] rounded-2xl m-4 sm:m-3 p-6 sm:p-8 text-white max-w-[600px] h-[250px] shadow-lg relative">
               <p className="font-['Open_Sans'] font-regular text-[12px] sm:text-[14px] mb-15">
                 Выбрать и купить новый автомобиль на PERECUP можно достаточно
                 просто и быстро — благодаря удобному подбору авто по параметрам,
@@ -171,7 +171,7 @@ export default function Home() {
           </div>
           <div className="absolute top-0 right-0">
             <Image
-              src="/images/04.png"
+              src="/images/prado.svg"
               alt="White SUV"
               width={550}
               height={300}
@@ -242,8 +242,9 @@ export default function Home() {
         {/* Additional features section */}
         <section className="py-16 relative overflow-hidden">
           <div className="container mx-auto px-4 relative z-10">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-16">
-              <div className="space-y-8 order-1 md:order-2">
+            <div className="flex flex-col md:flex-row justify-between items-start w-full gap-y-10 gap-x-20">
+              {/* Левая колонка — не "уезжает" и ограничена по ширине */}
+              <div className="space-y-8 order-1 md:order-2 w-full md:max-w-[50%]">
                 {additionalFeatures.map((feature, index) => (
                   <div key={index} className="flex gap-10">
                     <div className="flex-shrink-0">
@@ -268,12 +269,14 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <div className="order-2 md:order-2">
-                <div className="relative h-[400px] w-[auto] sm:h-[538px] sm:w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
+
+              {/* Правая колонка — ограничена по ширине */}
+              <div className="order-2 md:order-2 w-full md:max-w-[50%]">
+                <div className="relative h-[400px] sm:h-[538px] sm:w-[535px] bg-white rounded-3xl p-3 shadow-[0px_4px_22.8px_20px_rgba(255,1,1,0.25)]">
                   <div>
                     <div className="flex space-x-2 mb-6">
+                      {/* Иконки */}
                       <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-900 flex items-center justify-center">
-                        {" "}
                         <Image
                           src="/images/vector5.svg"
                           alt=""
@@ -283,7 +286,6 @@ export default function Home() {
                         />
                       </div>
                       <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-black flex items-center justify-center">
-                        {" "}
                         <Image
                           src="/images/vector6.svg"
                           alt=""
@@ -293,7 +295,6 @@ export default function Home() {
                         />
                       </div>
                       <div className="w-12 sm:w-16 h-12 rounded-full bg-gradient-to-b from-red-600 to-gray-800 flex items-center justify-center">
-                        {" "}
                         <Image
                           src="/images/vector7.svg"
                           alt=""
@@ -320,6 +321,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         {/* Client statistics */}
         <section className="py-8">
           <div className="container mx-auto px-4">
@@ -476,7 +478,7 @@ export default function Home() {
 
             <div className="mt-6 md:mt-0">
               <Image
-                src="/images/05.png"
+                src="/images/tesla.svg"
                 alt="Tesla"
                 width={800}
                 height={144}
