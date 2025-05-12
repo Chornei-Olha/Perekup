@@ -125,9 +125,11 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
                 name="model"
                 value={selectedModels[0] || ""}
                 onChange={(e) => setSelectedModels([Number(e.target.value)])}
-                className="w-full border p-2 rounded"
+                className="bg-black text-white w-full border p-2 rounded"
               >
-                <option value="">Выберите модель</option>
+                <option value="" className="bg-black text-white">
+                  Выберите модель
+                </option>
                 {models.map((m) => (
                   <option key={m.id} value={m.id}>
                     {m.name}

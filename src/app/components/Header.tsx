@@ -40,7 +40,7 @@ export default function Header() {
           >
             <Phone className="h-5 w-5 mr-2" />
             <span className="font-['Open_Sans'] font-light text-sm text-white">
-              +38(050) 044-11-32
+              +38 (050) 044-11-32
             </span>
           </a>
         </div>

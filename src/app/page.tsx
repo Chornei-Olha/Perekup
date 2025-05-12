@@ -147,7 +147,7 @@ export default function Home() {
           <div className="container mx-auto flex">
             <div className="bg-[#FF001D] rounded-2xl m-4 sm:m-3 p-6 sm:p-8 text-white max-w-[600px] h-[250px] shadow-lg relative">
               <p className="font-['Open_Sans'] font-regular text-[12px] sm:text-[14px] mb-15">
-                Выбрать и купить новый автомобиль на PERECUP можно достаточно
+                Выбрать и купить новый автомобиль на PEREKUP можно достаточно
                 просто и быстро — благодаря удобному подбору авто по параметрам,
                 сервису сравнения автомобилей и интуитивно простой навигации.
               </p>
@@ -431,14 +431,14 @@ export default function Home() {
           <div className="w-full flex flex-col md:flex-row sm:justify-between sm:items-end">
             <div className="space-y-3 my-auto pl-4 sm:pl-16">
               <div className="mb-4">
-                <div className="flex items-center mb-2">
+                <a href="tel:+380500441132" className="flex items-center mb-2">
                   <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
                     Телефон
                   </span>
-                  <span className="font-['Open_Sans'] font-light text-white/75">
-                    +38(050)0441132
+                  <span className="font-['Open_Sans'] font-light text-white/75 hover:underline">
+                    +38 (050) 044-11-32
                   </span>
-                </div>
+                </a>
                 <div className="flex items-center mb-2">
                   <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
                     Адрес
@@ -447,14 +447,17 @@ export default function Home() {
                     Украина
                   </span>
                 </div>
-                <div className="flex items-center mb-8">
+                <a
+                  href="mailto:pekekuppro7@gmail.com"
+                  className="flex items-center mb-8"
+                >
                   <span className="font-['Open_Sans'] font-light text-gray-500 w-20">
                     E-mail
                   </span>
-                  <span className="font-['Open_Sans'] font-light text-white/75">
+                  <span className="font-['Open_Sans'] font-light text-white/75 hover:underline">
                     pekekuppro7@gmail.com
                   </span>
-                </div>
+                </a>
               </div>
               <div className="flex gap-4 mt-4">
                 <a href="#" className="hover:text-red-500">

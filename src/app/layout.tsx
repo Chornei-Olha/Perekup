@@ -54,6 +54,7 @@ export default function RootLayout({
         <meta property="og:type" content="website" />
         <meta property="og:title" content={SITE_NAME} />
         <meta property="og:description" content={SITE_DESCRIPTION} />
+        <meta name="color-scheme" content="light" />
       </head>
       <body
         className={`${inter.className} ${plus_jakarta.className} ${manrope.className} ${open_sans.className}`}
