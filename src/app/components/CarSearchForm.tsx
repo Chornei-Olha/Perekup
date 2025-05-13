@@ -2,6 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { CarSearchFilters } from "../../lib/types";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from "@headlessui/react";
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 type Option = { id: number; name: string };
 
@@ -103,17 +110,35 @@ const CarSearchForm: React.FC<CarSearchFormProps> = ({ onSubmit }) => {
             <label className="font-['Inter'] font-medium block mb-1">
               Марка
             </label>
-            <select
-              value={selectedBrand}
-              onChange={(e) => setSelectedBrand(Number(e.target.value))}
-              className="w-full border p-2 rounded"
-            >
-              {brands.map((b) => (
-                <option key={b.id} value={b.id}>
-                  {b.name}
-                </option>
-              ))}
-            </select>
+            <Listbox value={selectedBrand} onChange={setSelectedBrand}>
+              <div className="relative">
+                <ListboxButton className="w-full border p-2 rounded text-left bg-black">
+                  {brands.find((b) => b.id === selectedBrand)?.name ||
+                    "Выберите марку"}
+                </ListboxButton>
+                <ListboxOptions className="absolute z-10 mt-1 w-full bg-white border rounded shadow-lg max-h-60 overflow-auto">
+                  {brands.map((brand) => (
+                    <ListboxOption
+                      key={brand.id}
+                      value={brand.id}
+                      className={(props: { active: boolean }) =>
+                        `cursor-pointer p-2 ${
+                          props.active
+                            ? "bg-red-100 text-black"
+                            : "text-gray-900"
+                        }`
+                      }
+                    >
+                      {({ selected }) => (
+                        <span className={selected ? "font-semibold" : ""}>
+                          {brand.name}
+                        </span>
+                      )}
+                    </ListboxOption>
+                  ))}
+                </ListboxOptions>
+              </div>
+            </Listbox>
           </div>
           {/* Модель */}
           <div>
