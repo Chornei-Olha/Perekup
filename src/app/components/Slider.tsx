@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
-import { searchCars } from "@/lib/api";
+import { getTopCars } from "@/lib/api";
 import { Car } from "@/lib/types";
 
 export default function Top50Slider() {
@@ -14,15 +14,8 @@ export default function Top50Slider() {
 
   useEffect(() => {
     async function load() {
-      const all = await searchCars({
-        brands: [],
-        models: [],
-        minYear: 2000,
-        maxYear: 2025,
-        period: 72,
-      });
-      const sorted = all.sort((a, b) => b.price - a.price).slice(0, 50);
-      setCars(sorted);
+      const topCars = await getTopCars();
+      setCars(topCars);
     }
     load();
   }, []);
@@ -69,14 +62,14 @@ export default function Top50Slider() {
                   <span className="absolute top-2 right-2 bg-[#9f1b1b] text-white text-xs px-2 py-0.5 rounded">
                     топ
                   </span>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={car.image}
-                    alt={car.title}
-                    width={240}
-                    height={140}
-                    className="object-contain"
-                  />
+                  <div className="w-[240px] h-[140px] flex items-center justify-center overflow-hidden">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={car.image}
+                      alt={car.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h3 className="font-semibold text-center mt-4">
                     {car.title}
                   </h3>

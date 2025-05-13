@@ -93,3 +93,27 @@ export async function searchCars(filters: CarSearchFilters): Promise<Car[]> {
     return []; // безопасно вернуть пустой массив
   }
 }
+
+export async function getTopCars(): Promise<Car[]> {
+  try {
+    const res = await fetch(`${BASE_URL}/cars/top`);
+
+    if (!res.ok) {
+      throw new Error(
+        `Ошибка при запросе топовых авто: ${res.status} ${res.statusText}`
+      );
+    }
+
+    const data = await res.json();
+
+    if (!Array.isArray(data)) {
+      console.error("Ожидался массив автомобилей, получено:", data);
+      return [];
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Ошибка при запросе к API для топ авто:", error);
+    return [];
+  }
+}
